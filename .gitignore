@@ -1,0 +1,6 @@
+/password.txt
+.venv/
+.idea/
+__pycache__/
+*.py[cod]
+~$*.docx
