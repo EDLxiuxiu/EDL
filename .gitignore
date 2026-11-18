@@ -4,3 +4,12 @@
 __pycache__/
 *.py[cod]
 ~$*.docx
+
+# 本地交接与教师原始材料
+/新对话交接提示词.md
+/设计讨论提示.txt
+/软件系统开发实践课程设计任务书(1).docx
+
+# 可通过脚本重新生成的大文件
+/experiments/**/data.json
+/experiments/**/baseline_result.json

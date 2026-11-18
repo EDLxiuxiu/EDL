@@ -1,3 +1,6 @@
+import argparse
+from getpass import getpass
+
 from admission import ranks as first_batch_ranks
 from admission import run_first_batch
 from second_batch import CITY_CUTOFF, run_second_batch
@@ -5,6 +8,82 @@ from third_batch import PLANS, build_candidates, run_general_batch
 
 
 CHOICE_LIMITS = {1: 1, 2: 3, 3: 6, 4: 6}
+
+
+def read_admission_inputs(cursor):
+    cursor.execute(
+        "SELECT candidate_no, junior_code, score, tie_no "
+        "FROM candidates ORDER BY candidate_no"
+    )
+    by_id = {
+        candidate_no: {
+            "id": candidate_no,
+            "junior": junior_code,
+            "score": score,
+            "tie": tie_no,
+            "choice": "",
+            "second_choices": [],
+            "choices": {3: [], 4: []},
+        }
+        for candidate_no, junior_code, score, tie_no in cursor
+    }
+
+    cursor.execute(
+        "SELECT candidate_no, batch_no, senior_code FROM candidate_choices "
+        "ORDER BY candidate_no, batch_no, choice_no"
+    )
+    for candidate_no, batch_no, senior_code in cursor:
+        candidate = by_id[candidate_no]
+        if batch_no == 1:
+            candidate["choice"] = senior_code
+        elif batch_no == 2:
+            candidate["second_choices"].append(senior_code)
+        else:
+            candidate["choices"][batch_no].append(senior_code)
+
+    cursor.execute(
+        "SELECT plan_id, initial_seats, cutoff_score "
+        "FROM admission_plans ORDER BY plan_id"
+    )
+    plans = {
+        plan_id: {"seats": seats, "cutoff": cutoff}
+        for plan_id, seats, cutoff in cursor
+    }
+
+    cursor.execute(
+        "SELECT senior_code, candidate_no, assessment_rank "
+        "FROM autonomous_qualifications"
+    )
+    ranks = {}
+    for senior_code, candidate_no, assessment_rank in cursor:
+        ranks.setdefault(senior_code, {})[candidate_no] = assessment_rank
+
+    return list(by_id.values()), plans, ranks
+
+
+def load_mysql_inputs():
+    import mysql.connector
+
+    password = getpass("请输入 MySQL 应用账号 admission_app 的密码：")
+    try:
+        with mysql.connector.connect(
+            host="127.0.0.1",
+            port=3306,
+            user="admission_app",
+            password=password,
+            database="admissionsim",
+            charset="utf8mb4",
+            connection_timeout=5,
+        ) as connection:
+            connection.start_transaction(
+                isolation_level="REPEATABLE READ",
+                consistent_snapshot=True,
+                readonly=True,
+            )
+            with connection.cursor() as cursor:
+                return read_admission_inputs(cursor)
+    except mysql.connector.Error as exc:
+        raise SystemExit(f"MySQL 读取失败（{exc.errno}）：{exc.msg}") from None
 
 
 def validate_inputs(candidates, plans):
@@ -62,11 +141,13 @@ def validate_inputs(candidates, plans):
                 seen_schools.add(school)
 
 
-def run_all_batches(candidates, plans):
+def run_all_batches(candidates, plans, ranks=None):
     validate_inputs(candidates, plans)
+    if ranks is None:
+        ranks = first_batch_ranks
 
     first, first_reasons, balances, first_transfers = run_first_batch(
-        candidates, first_batch_ranks, plans, city_cutoff=CITY_CUTOFF
+        candidates, ranks, plans, city_cutoff=CITY_CUTOFF
     )
     second, balances, second_transfers, second_log = run_second_batch(
         candidates, plans, first, balances
@@ -110,8 +191,17 @@ def check_balances(plans, result):
 
 
 def main():
-    candidates = build_candidates()
-    result = run_all_batches(candidates, PLANS)
+    parser = argparse.ArgumentParser(description="运行四批高中录取模拟")
+    parser.add_argument("--mysql", action="store_true", help="从 MySQL 读取投档数据")
+    args = parser.parse_args()
+
+    if args.mysql:
+        candidates, plans, ranks = load_mysql_inputs()
+        print(f"数据来源 MySQL admissionsim，读入 {len(candidates)} 名考生、{len(plans)} 条计划")
+    else:
+        candidates, plans, ranks = build_candidates(), PLANS, first_batch_ranks
+
+    result = run_all_batches(candidates, plans, ranks=ranks)
     admitted = result["admitted"]
     balances = result["balances"]
 
@@ -122,7 +212,7 @@ def main():
                 raise ValueError(f"{candidate_id} 被重复录取")
             admitted_ids.add(candidate_id)
 
-    check_balances(PLANS, result)
+    check_balances(plans, result)
 
     print("各批录取人数")
     for batch in range(1, 5):
@@ -152,7 +242,7 @@ def main():
     print(f"\n总录取 {len(admitted_ids)} 人")
     print("未录取", "、".join(unadmitted) or "无")
     print(f"剩余名额 {sum(balances.values())}")
-    print(f"{len(PLANS)} 条计划名额收支全部通过")
+    print(f"{len(plans)} 条计划名额收支全部通过")
 
 
 if __name__ == "__main__":

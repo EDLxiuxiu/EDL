@@ -1,0 +1,378 @@
+{
+  "format_version": "local-baseline-v1",
+  "created_at": "2026-11-18T11:26:59.879741+08:00",
+  "dataset_manifest": {
+    "dataset_id": "scale-v1-50000-cb15617a72c20dd7",
+    "description": "教学用虚构数据，不代表真实招生分布",
+    "config": {
+      "count": 50000,
+      "seed": 20261118,
+      "juniors": 500,
+      "third_schools": 100,
+      "fourth_schools": 50,
+      "seat_percent": 80,
+      "third_seat_percent": 80,
+      "score_mean": 660,
+      "score_sd": 70,
+      "first_percent": 15,
+      "qualified_percent": 70,
+      "hot_percent": 60,
+      "generator_version": "scale-v1",
+      "year": 2026,
+      "city_cutoff": 600,
+      "gradient_lines": [
+        720,
+        680,
+        640,
+        600
+      ],
+      "choice_limits": {
+        "1": 1,
+        "2": 3,
+        "3": 6,
+        "4": 6
+      }
+    },
+    "counts": {
+      "candidates": 50000,
+      "juniors": 500,
+      "seniors": 150,
+      "plans": 16250,
+      "initial_seats": 40000,
+      "choice_rows": 380944,
+      "qualified_rows": 5104
+    },
+    "data_sha256": "afc5b6f3c805b8a8c764182c561b685c7831403cea8eeb9abc7b93c2b341b4b4",
+    "generator_sha256": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+    "environment": {
+      "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "seconds": {
+      "generate": 0.3912921000010101,
+      "validate_and_summarize": 0.1276244000036968,
+      "serialize": 0.12478509999345988,
+      "file_write": 0.002990500011947006
+    },
+    "data_bytes": 10265595
+  },
+  "source_sha256": {
+    "admission.py": "b5c4d76daa21a4a46b1a84634377127003d3aeaaddf977558451355a0f81cf9f",
+    "second_batch.py": "d80c8400b7f854d05802b8bd952c8fa929c83f5ca1067d37710409664579337d",
+    "third_batch.py": "610fc4505a7c0058d9e884130af8fc9b7171dca729eeb52c3f0713ecfd60e064",
+    "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+    "generate_scale_data.py": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+    "benchmark_admissions.py": "9aec244b97c33111f818380b4d6b978afb14c0cc8c1683051c6f5083f71da181"
+  },
+  "git": {
+    "commit": "5ffe3f7a81309242880e02ad4c6d529103dc27ae",
+    "tracked_changes": "M run_admissions.py"
+  },
+  "environment": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "logical_cpus": 16
+  },
+  "conditions": {
+    "fresh_process_each_round": true,
+    "warmup_rounds": 1,
+    "timing_rounds": 3,
+    "memory_rounds": 1,
+    "file_cache": "未清空操作系统缓存；预检及重复读取会预热缓存",
+    "timing": "perf_counter 墙钟秒数；不含进程启动、导入、摘要及结果文件写入",
+    "memory": "单独一轮 tracemalloc；从读取到序列化结束的 Python 追踪分配峰值，非进程 RSS",
+    "scope": "本地 JSON 与纯 Python 算法；未连接 MySQL"
+  },
+  "summary": {
+    "candidates": 50000,
+    "juniors": 500,
+    "seniors": 150,
+    "plans": 16250,
+    "initial_seats": 40000,
+    "choice_rows": 380944,
+    "qualified_rows": 5104,
+    "batch_admitted": {
+      "1": 1955,
+      "2": 13177,
+      "3": 16868,
+      "4": 6509
+    },
+    "admitted": 38509,
+    "remaining_seats": 1491,
+    "transfer_rows": 2923,
+    "log_rows": 170763,
+    "input_json_bytes": 10241637,
+    "result_json_bytes": 8099542
+  },
+  "business_sha256": "53697eb1b63b34ba032e801f596c4594c23272b30c704c118ca4cffb86dbc65a",
+  "full_result_sha256": "9ff60637d552d2902f670c3601ce5afd91cdb983388390392d3e681ba77c99e8",
+  "seconds": {
+    "read_json": {
+      "min": 0.12983479999820702,
+      "median": 0.1335449000034714,
+      "max": 0.135133699994185
+    },
+    "dataset_validate": {
+      "min": 0.14874629999394529,
+      "median": 0.1489399999991292,
+      "max": 0.14965660001325887
+    },
+    "validate_inputs": {
+      "min": 0.0882222000072943,
+      "median": 0.09108359999663662,
+      "max": 0.09250579999934416
+    },
+    "batch_1": {
+      "min": 0.20965109999815468,
+      "median": 0.21964150000712834,
+      "max": 0.22256329999072477
+    },
+    "batch_2": {
+      "min": 0.14229230000637472,
+      "median": 0.15540469999541529,
+      "max": 0.18086249999760184
+    },
+    "batch_3": {
+      "min": 0.12780149999889545,
+      "median": 0.1316110000043409,
+      "max": 0.13881840000976808
+    },
+    "batch_4": {
+      "min": 0.06723840000631753,
+      "median": 0.07541099999798462,
+      "max": 0.07867859999532811
+    },
+    "admissions_total": {
+      "min": 0.6395067000121344,
+      "median": 0.6759748000040418,
+      "max": 0.7108324000000721
+    },
+    "result_validate": {
+      "min": 0.055124699996667914,
+      "median": 0.059741399993072264,
+      "max": 0.060290299996268004
+    },
+    "input_serialize": {
+      "min": 0.12143159999686759,
+      "median": 0.12552649999270216,
+      "max": 0.1258975999953691
+    },
+    "result_serialize": {
+      "min": 0.04468129998713266,
+      "median": 0.04493499999807682,
+      "max": 0.04863400000613183
+    },
+    "pipeline_total": {
+      "min": 1.1477862000028836,
+      "median": 1.1875113999994937,
+      "max": 1.223408699996071
+    }
+  },
+  "warmup_sample": {
+    "seconds": {
+      "read_json": 0.13694179999583866,
+      "dataset_validate": 0.1517260999971768,
+      "validate_inputs": 0.08819149999180809,
+      "batch_1": 0.2149286000058055,
+      "batch_2": 0.13878209999529645,
+      "batch_3": 0.12589559999469202,
+      "batch_4": 0.07769479999842588,
+      "admissions_total": 0.6472072000033222,
+      "result_validate": 0.054918499998166226,
+      "input_serialize": 0.12326769999344833,
+      "result_serialize": 0.047672300002886914,
+      "pipeline_total": 1.1618282999988878
+    },
+    "memory": null,
+    "summary": {
+      "candidates": 50000,
+      "juniors": 500,
+      "seniors": 150,
+      "plans": 16250,
+      "initial_seats": 40000,
+      "choice_rows": 380944,
+      "qualified_rows": 5104,
+      "batch_admitted": {
+        "1": 1955,
+        "2": 13177,
+        "3": 16868,
+        "4": 6509
+      },
+      "admitted": 38509,
+      "remaining_seats": 1491,
+      "transfer_rows": 2923,
+      "log_rows": 170763,
+      "input_json_bytes": 10241637,
+      "result_json_bytes": 8099542
+    },
+    "business_sha256": "53697eb1b63b34ba032e801f596c4594c23272b30c704c118ca4cffb86dbc65a",
+    "full_result_sha256": "9ff60637d552d2902f670c3601ce5afd91cdb983388390392d3e681ba77c99e8"
+  },
+  "timing_samples": [
+    {
+      "seconds": {
+        "read_json": 0.12983479999820702,
+        "dataset_validate": 0.14874629999394529,
+        "validate_inputs": 0.0882222000072943,
+        "batch_1": 0.22256329999072477,
+        "batch_2": 0.18086249999760184,
+        "batch_3": 0.13881840000976808,
+        "batch_4": 0.07867859999532811,
+        "admissions_total": 0.7108324000000721,
+        "result_validate": 0.059741399993072264,
+        "input_serialize": 0.12552649999270216,
+        "result_serialize": 0.04863400000613183,
+        "pipeline_total": 1.223408699996071
+      },
+      "memory": null,
+      "summary": {
+        "candidates": 50000,
+        "juniors": 500,
+        "seniors": 150,
+        "plans": 16250,
+        "initial_seats": 40000,
+        "choice_rows": 380944,
+        "qualified_rows": 5104,
+        "batch_admitted": {
+          "1": 1955,
+          "2": 13177,
+          "3": 16868,
+          "4": 6509
+        },
+        "admitted": 38509,
+        "remaining_seats": 1491,
+        "transfer_rows": 2923,
+        "log_rows": 170763,
+        "input_json_bytes": 10241637,
+        "result_json_bytes": 8099542
+      },
+      "business_sha256": "53697eb1b63b34ba032e801f596c4594c23272b30c704c118ca4cffb86dbc65a",
+      "full_result_sha256": "9ff60637d552d2902f670c3601ce5afd91cdb983388390392d3e681ba77c99e8"
+    },
+    {
+      "seconds": {
+        "read_json": 0.1335449000034714,
+        "dataset_validate": 0.1489399999991292,
+        "validate_inputs": 0.09108359999663662,
+        "batch_1": 0.20965109999815468,
+        "batch_2": 0.14229230000637472,
+        "batch_3": 0.12780149999889545,
+        "batch_4": 0.06723840000631753,
+        "admissions_total": 0.6395067000121344,
+        "result_validate": 0.055124699996667914,
+        "input_serialize": 0.1258975999953691,
+        "result_serialize": 0.04468129998713266,
+        "pipeline_total": 1.1477862000028836
+      },
+      "memory": null,
+      "summary": {
+        "candidates": 50000,
+        "juniors": 500,
+        "seniors": 150,
+        "plans": 16250,
+        "initial_seats": 40000,
+        "choice_rows": 380944,
+        "qualified_rows": 5104,
+        "batch_admitted": {
+          "1": 1955,
+          "2": 13177,
+          "3": 16868,
+          "4": 6509
+        },
+        "admitted": 38509,
+        "remaining_seats": 1491,
+        "transfer_rows": 2923,
+        "log_rows": 170763,
+        "input_json_bytes": 10241637,
+        "result_json_bytes": 8099542
+      },
+      "business_sha256": "53697eb1b63b34ba032e801f596c4594c23272b30c704c118ca4cffb86dbc65a",
+      "full_result_sha256": "9ff60637d552d2902f670c3601ce5afd91cdb983388390392d3e681ba77c99e8"
+    },
+    {
+      "seconds": {
+        "read_json": 0.135133699994185,
+        "dataset_validate": 0.14965660001325887,
+        "validate_inputs": 0.09250579999934416,
+        "batch_1": 0.21964150000712834,
+        "batch_2": 0.15540469999541529,
+        "batch_3": 0.1316110000043409,
+        "batch_4": 0.07541099999798462,
+        "admissions_total": 0.6759748000040418,
+        "result_validate": 0.060290299996268004,
+        "input_serialize": 0.12143159999686759,
+        "result_serialize": 0.04493499999807682,
+        "pipeline_total": 1.1875113999994937
+      },
+      "memory": null,
+      "summary": {
+        "candidates": 50000,
+        "juniors": 500,
+        "seniors": 150,
+        "plans": 16250,
+        "initial_seats": 40000,
+        "choice_rows": 380944,
+        "qualified_rows": 5104,
+        "batch_admitted": {
+          "1": 1955,
+          "2": 13177,
+          "3": 16868,
+          "4": 6509
+        },
+        "admitted": 38509,
+        "remaining_seats": 1491,
+        "transfer_rows": 2923,
+        "log_rows": 170763,
+        "input_json_bytes": 10241637,
+        "result_json_bytes": 8099542
+      },
+      "business_sha256": "53697eb1b63b34ba032e801f596c4594c23272b30c704c118ca4cffb86dbc65a",
+      "full_result_sha256": "9ff60637d552d2902f670c3601ce5afd91cdb983388390392d3e681ba77c99e8"
+    }
+  ],
+  "memory_sample": {
+    "seconds": {
+      "read_json": 0.6365421999944374,
+      "dataset_validate": 1.00805709999986,
+      "validate_inputs": 0.7182498000038322,
+      "batch_1": 0.19666409998899326,
+      "batch_2": 0.6974057000043103,
+      "batch_3": 1.286610399998608,
+      "batch_4": 0.2590199000114808,
+      "admissions_total": 3.159432700005709,
+      "result_validate": 0.07864340000378434,
+      "input_serialize": 1.5373483000003034,
+      "result_serialize": 0.26324010000098497,
+      "pipeline_total": 6.683459999985644
+    },
+    "memory": {
+      "current_bytes": 111197981,
+      "peak_bytes": 142064748
+    },
+    "summary": {
+      "candidates": 50000,
+      "juniors": 500,
+      "seniors": 150,
+      "plans": 16250,
+      "initial_seats": 40000,
+      "choice_rows": 380944,
+      "qualified_rows": 5104,
+      "batch_admitted": {
+        "1": 1955,
+        "2": 13177,
+        "3": 16868,
+        "4": 6509
+      },
+      "admitted": 38509,
+      "remaining_seats": 1491,
+      "transfer_rows": 2923,
+      "log_rows": 170763,
+      "input_json_bytes": 10241637,
+      "result_json_bytes": 8099542
+    },
+    "business_sha256": "53697eb1b63b34ba032e801f596c4594c23272b30c704c118ca4cffb86dbc65a",
+    "full_result_sha256": "9ff60637d552d2902f670c3601ce5afd91cdb983388390392d3e681ba77c99e8"
+  }
+}

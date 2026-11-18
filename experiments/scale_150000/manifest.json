@@ -1,0 +1,55 @@
+{
+  "dataset_id": "scale-v1-150000-5bbab6addf0ceeeb",
+  "description": "教学用虚构数据，不代表真实招生分布",
+  "config": {
+    "count": 150000,
+    "seed": 20261118,
+    "juniors": 500,
+    "third_schools": 100,
+    "fourth_schools": 50,
+    "seat_percent": 80,
+    "third_seat_percent": 80,
+    "score_mean": 660,
+    "score_sd": 70,
+    "first_percent": 15,
+    "qualified_percent": 70,
+    "hot_percent": 60,
+    "generator_version": "scale-v1",
+    "year": 2026,
+    "city_cutoff": 600,
+    "gradient_lines": [
+      720,
+      680,
+      640,
+      600
+    ],
+    "choice_limits": {
+      "1": 1,
+      "2": 3,
+      "3": 6,
+      "4": 6
+    }
+  },
+  "counts": {
+    "candidates": 150000,
+    "juniors": 500,
+    "seniors": 150,
+    "plans": 48250,
+    "initial_seats": 120000,
+    "choice_rows": 1149399,
+    "qualified_rows": 15807
+  },
+  "data_sha256": "437a04283af6f5bf018e56488e764b729be43e097a5bcd440b64df09d0dd4194",
+  "generator_sha256": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+  "environment": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "seconds": {
+    "generate": 1.13673359999666,
+    "validate_and_summarize": 0.41132509999442846,
+    "serialize": 0.38448670000070706,
+    "file_write": 0.01599010000063572
+  },
+  "data_bytes": 30842274
+}
