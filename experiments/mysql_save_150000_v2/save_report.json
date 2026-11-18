@@ -1,0 +1,136 @@
+{
+  "status": "verified",
+  "run_id": "0113c1d3-e855-42db-a16f-2578e5f3ab78",
+  "database": "admissionsim_scale_150000",
+  "paths": {
+    "dataset": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\scale_150000",
+    "mysql_run": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\mysql_run_150000_v1",
+    "reference": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\baseline_150000_v1"
+  },
+  "batch_size": 1000,
+  "started_at": "2026-11-18T16:38:42.706561+08:00",
+  "connector": "26.10.0",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "seconds": {
+    "local_validate": 1.5341850999975577,
+    "json_serialize": 0.38916120000067167,
+    "build_rows": 0.019410099994274788,
+    "connect": 0.3009131000144407,
+    "precheck": 0.5782245000009425,
+    "packet_check": 1.0976907999865944,
+    "insert_run": 8.25089380001009,
+    "insert_balances": 3.733806599993841,
+    "insert_details": 16.636929699991015,
+    "insert_transfers": 0.9382703000010224,
+    "commit": 0.3796266999997897,
+    "check_connect": 0.053314200005843304,
+    "check_header_read": 1.002243199996883,
+    "check_snapshot_and_logs": 0.9598613000125624,
+    "check_balances": 0.2892795999941882,
+    "check_details": 0.7474191999936011,
+    "check_transfers": 0.05787239999335725,
+    "post_commit_total": 3.114885700008017,
+    "sql_write_total": 29.559900399995968,
+    "write_and_commit": 29.939527099995757
+  },
+  "conditions": "保存已验收结果；完整输入快照和日志；单事务按批发送；单次测量，未清缓存，未测内存；use_pure=True",
+  "summary": {
+    "candidates": 150000,
+    "plans": 48250,
+    "initial_seats": 120000,
+    "batch_admitted": {
+      "1": 6184,
+      "2": 39722,
+      "3": 50094,
+      "4": 19291
+    },
+    "admitted": 115291,
+    "remaining_seats": 4709,
+    "transfer_rows": 8378,
+    "log_rows": 514014
+  },
+  "provenance": {
+    "database": "admissionsim_scale_150000",
+    "dataset_manifest": {
+      "dataset_id": "scale-v1-150000-5bbab6addf0ceeeb",
+      "description": "教学用虚构数据，不代表真实招生分布",
+      "config": {
+        "count": 150000,
+        "seed": 20261118,
+        "juniors": 500,
+        "third_schools": 100,
+        "fourth_schools": 50,
+        "seat_percent": 80,
+        "third_seat_percent": 80,
+        "score_mean": 660,
+        "score_sd": 70,
+        "first_percent": 15,
+        "qualified_percent": 70,
+        "hot_percent": 60,
+        "generator_version": "scale-v1",
+        "year": 2026,
+        "city_cutoff": 600,
+        "gradient_lines": [
+          720,
+          680,
+          640,
+          600
+        ],
+        "choice_limits": {
+          "1": 1,
+          "2": 3,
+          "3": 6,
+          "4": 6
+        }
+      },
+      "counts": {
+        "candidates": 150000,
+        "juniors": 500,
+        "seniors": 150,
+        "plans": 48250,
+        "initial_seats": 120000,
+        "choice_rows": 1149399,
+        "qualified_rows": 15807
+      },
+      "data_sha256": "437a04283af6f5bf018e56488e764b729be43e097a5bcd440b64df09d0dd4194",
+      "generator_sha256": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+      "environment": {
+        "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+        "platform": "Windows-11-10.0.26200-SP0"
+      },
+      "seconds": {
+        "generate": 1.13673359999666,
+        "validate_and_summarize": 0.41132509999442846,
+        "serialize": 0.38448670000070706,
+        "file_write": 0.01599010000063572
+      },
+      "data_bytes": 30842274
+    },
+    "mysql_run_report_sha256": "2a3aed72c3e6b23b27ba0d01a1ce34314a27f97d35231118b8c746784155cf49",
+    "full_result_sha256": "6e670b8e715fd6110df9457a8e385d80905f2bde09a8299450778f775bc44212",
+    "business_sha256": "2c7f836191d40f314f5adacb154f430446f06817cfbe0dfbb3eeb47969d5dac4",
+    "source_sha256": {
+      "admission.py": "b5c4d76daa21a4a46b1a84634377127003d3aeaaddf977558451355a0f81cf9f",
+      "second_batch.py": "d80c8400b7f854d05802b8bd952c8fa929c83f5ca1067d37710409664579337d",
+      "third_batch.py": "610fc4505a7c0058d9e884130af8fc9b7171dca729eeb52c3f0713ecfd60e064",
+      "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+      "generate_scale_data.py": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+      "benchmark_admissions.py": "9aec244b97c33111f818380b4d6b978afb14c0cc8c1683051c6f5083f71da181",
+      "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\run_scale_admissions.py": "511541768dd1c0232aeb2ce9239d778668de2cbb141539ccfda63281d92b5fe1",
+      "import_scale_data.py": "385905b3fdee4769d3368e387dbcc98a8f6f3021e2a319e72999668c4616e509",
+      "schema_scale.sql": "11188bb977aceb6fbb606a29280e31c4603d0f544d1e90996c1f06b8da732e20",
+      "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\save_scale_run.py": "2c1830279574bdf6b400b8590d9a560f472c39df533881f7a58f71c515d6e190"
+    }
+  },
+  "payload_sha256": [
+    "e8c446c755e315fd7b44285437f2388e28c09ce814c06eaf18cbcd4c0d4d80ef",
+    "6a43f43c29c323ebc5fbb7672ac84bc6e9147c3563f601076f32228341785b67"
+  ],
+  "server": {
+    "version": "8.4.13",
+    "max_allowed_packet": 67108864,
+    "log_bin": 1,
+    "sql_mode": "ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+  },
+  "main_command_bytes": 60106164
+}

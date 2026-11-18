@@ -1,0 +1,62 @@
+{
+  "status": "verified",
+  "phase": "finished",
+  "diagnostic_id": "672887bf-9df3-4679-856a-2479d0ca5e57",
+  "database": "admissionsim_scale_150000",
+  "started_at": "2026-11-18T16:30:24.637691+08:00",
+  "save_report": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\mysql_save_150000_v1\\save_report.json",
+  "source_sha256": {
+    "probe": "eba00c9435a391c16dac0feab81dc6e6e30d4d869ef0e8cf8a169312a9cbb840",
+    "save_scale_run.py": "2c1830279574bdf6b400b8590d9a560f472c39df533881f7a58f71c515d6e190"
+  },
+  "conditions": {
+    "readonly": true,
+    "measurement_runs": 1,
+    "scope": "JSON转换、属性计算和二进制表示大小；没有结果表写入",
+    "timing": "SELECT耗时含驱动编码、传输及服务器计算，不是纯JSON转换时间"
+  },
+  "seconds": {
+    "local_prepare": 2.2693508000083966,
+    "connect": 0.13046070000564214,
+    "json_select": 7.969562700003735
+  },
+  "source_run_id": "f1413836-d79a-4772-8d39-e714b6123252",
+  "expected_prefix": [
+    "OBJECT",
+    150000,
+    48250,
+    "OBJECT",
+    22551,
+    176918,
+    176095,
+    138450
+  ],
+  "payload_sha256": [
+    "e8c446c755e315fd7b44285437f2388e28c09ce814c06eaf18cbcd4c0d4d80ef",
+    "6a43f43c29c323ebc5fbb7672ac84bc6e9147c3563f601076f32228341785b67"
+  ],
+  "sql": "SELECT JSON_TYPE(s), JSON_LENGTH(s, '$.candidates'), JSON_LENGTH(s, '$.plans'), JSON_TYPE(l), JSON_LENGTH(l, '$.first_reasons'), JSON_LENGTH(l, '$.second_log'), JSON_LENGTH(l, '$.third_log'), JSON_LENGTH(l, '$.fourth_log'), JSON_STORAGE_SIZE(s), JSON_STORAGE_SIZE(l) FROM (SELECT CAST(%s AS JSON) AS s, CAST(%s AS JSON) AS l) AS payload_probe",
+  "server": {
+    "version": "8.4.13",
+    "max_allowed_packet": 67108864,
+    "sql_mode": "ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",
+    "net_read_timeout": 30,
+    "net_write_timeout": 60,
+    "log_bin": 1
+  },
+  "uptime_before": 2472,
+  "command_bytes": 60106336,
+  "actual": [
+    "OBJECT",
+    150000,
+    48250,
+    "OBJECT",
+    22551,
+    176918,
+    176095,
+    138450,
+    38367063,
+    23019006
+  ],
+  "uptime_after": 2480
+}

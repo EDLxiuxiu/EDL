@@ -1,0 +1,968 @@
+{
+  "status": "verified",
+  "database": "admissionsim_scale_150000",
+  "created_at": "2026-11-18T16:56:12.425236+08:00",
+  "save_report": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\mysql_save_150000_v2\\save_report.json",
+  "environment": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "connector": "26.10.0",
+    "use_pure": true
+  },
+  "conditions": {
+    "readonly": true,
+    "warmup_rounds": 1,
+    "timing_rounds": 3,
+    "case_count": 6,
+    "fresh_process_each_query": false,
+    "connection": "所有查询复用一个连接、一个只读一致性快照",
+    "cache": "未清MySQL及操作系统缓存；元数据预检及预跑会预热缓存",
+    "memory_measured": false,
+    "scope": "复用read_candidate和build_trace；每次重新读取整次快照和日志",
+    "read_decode": "两条SQL、传输、驱动转换、JSON解析及查找考生",
+    "total": "读取解析、构建处理过程、释放整次查询上下文",
+    "excluded": "连接、事务启动、预检、本地准备、显式GC、结果核对、输出及报告写入",
+    "selection": "各批已录取名单按考生号排序，依次取首位、1/3、2/3、末位；两类有志愿未录取名单按考生号排序取中位位置"
+  },
+  "warmup_samples": [
+    {
+      "label": "admitted_batch_1",
+      "candidate_no": "S000002",
+      "seconds": {
+        "read_decode": 1.613340000010794,
+        "build_trace": 0.15050079999491572,
+        "release_context": 0.07074769999599084,
+        "total": 1.8345885000017006
+      },
+      "result_sha256": "eccc00379520fc95a4e70a9c180e2210bd14b7c3847680df939877c73ebc6622",
+      "round": 0
+    },
+    {
+      "label": "admitted_batch_2",
+      "candidate_no": "S050460",
+      "seconds": {
+        "read_decode": 1.2357252999936463,
+        "build_trace": 0.11795559999882244,
+        "release_context": 0.060594100010348484,
+        "total": 1.4142750000028173
+      },
+      "result_sha256": "577ac0c4c7206722569c1c82c908a298ad9e0051afd55f8587ce9d18e2754753",
+      "round": 0
+    },
+    {
+      "label": "admitted_batch_3",
+      "candidate_no": "S099797",
+      "seconds": {
+        "read_decode": 1.4599807000049623,
+        "build_trace": 0.09463219999452122,
+        "release_context": 0.05269350000889972,
+        "total": 1.6073064000083832
+      },
+      "result_sha256": "091165e0e1825911f9719537690672d94cbbf28573a11949eeedfdc8b24913f0",
+      "round": 0
+    },
+    {
+      "label": "admitted_batch_4",
+      "candidate_no": "S149993",
+      "seconds": {
+        "read_decode": 1.6275389000074938,
+        "build_trace": 0.09201219999522436,
+        "release_context": 0.05251270000007935,
+        "total": 1.7720638000027975
+      },
+      "result_sha256": "b1d5a0df01000eb278675dd63b65e8b071425d87af7f8ff801e0b4a95e17cf30",
+      "round": 0
+    },
+    {
+      "label": "unadmitted_above_cutoff",
+      "candidate_no": "S073470",
+      "seconds": {
+        "read_decode": 1.611434200007352,
+        "build_trace": 0.09038110000255983,
+        "release_context": 0.05204359999333974,
+        "total": 1.7538589000032516
+      },
+      "result_sha256": "6bf355249f8758d967d70ce00fef07b711fa3d867d8c25b7e3fc6975bbcf8ae6",
+      "round": 0
+    },
+    {
+      "label": "unadmitted_below_cutoff",
+      "candidate_no": "S074889",
+      "seconds": {
+        "read_decode": 1.5770882000069832,
+        "build_trace": 0.10732369999459479,
+        "release_context": 0.05873560000327416,
+        "total": 1.7431475000048522
+      },
+      "result_sha256": "8765860138cd5b948285ac98c1e450f8f5c8637cccb692a7062553265e0929aa",
+      "round": 0
+    }
+  ],
+  "timing_samples": [
+    {
+      "label": "admitted_batch_1",
+      "candidate_no": "S000002",
+      "seconds": {
+        "read_decode": 1.4908693000033963,
+        "build_trace": 0.08974099998886231,
+        "release_context": 0.050480700010666624,
+        "total": 1.6310910000029253
+      },
+      "result_sha256": "eccc00379520fc95a4e70a9c180e2210bd14b7c3847680df939877c73ebc6622",
+      "round": 1
+    },
+    {
+      "label": "admitted_batch_2",
+      "candidate_no": "S050460",
+      "seconds": {
+        "read_decode": 1.6950044999975944,
+        "build_trace": 0.10300509999797214,
+        "release_context": 0.07338430000527296,
+        "total": 1.8713939000008395
+      },
+      "result_sha256": "577ac0c4c7206722569c1c82c908a298ad9e0051afd55f8587ce9d18e2754753",
+      "round": 1
+    },
+    {
+      "label": "admitted_batch_3",
+      "candidate_no": "S099797",
+      "seconds": {
+        "read_decode": 1.560780200001318,
+        "build_trace": 0.0939455000043381,
+        "release_context": 0.05137109999486711,
+        "total": 1.7060968000005232
+      },
+      "result_sha256": "091165e0e1825911f9719537690672d94cbbf28573a11949eeedfdc8b24913f0",
+      "round": 1
+    },
+    {
+      "label": "admitted_batch_4",
+      "candidate_no": "S149993",
+      "seconds": {
+        "read_decode": 1.6775882999936584,
+        "build_trace": 0.09665099999983795,
+        "release_context": 0.04764509999949951,
+        "total": 1.821884399992996
+      },
+      "result_sha256": "b1d5a0df01000eb278675dd63b65e8b071425d87af7f8ff801e0b4a95e17cf30",
+      "round": 1
+    },
+    {
+      "label": "unadmitted_above_cutoff",
+      "candidate_no": "S073470",
+      "seconds": {
+        "read_decode": 1.5699831999954768,
+        "build_trace": 0.0919175000017276,
+        "release_context": 0.05682569999771658,
+        "total": 1.718726399994921
+      },
+      "result_sha256": "6bf355249f8758d967d70ce00fef07b711fa3d867d8c25b7e3fc6975bbcf8ae6",
+      "round": 1
+    },
+    {
+      "label": "unadmitted_below_cutoff",
+      "candidate_no": "S074889",
+      "seconds": {
+        "read_decode": 1.5711192000017036,
+        "build_trace": 0.08885809998901095,
+        "release_context": 0.05465140000160318,
+        "total": 1.7146286999923177
+      },
+      "result_sha256": "8765860138cd5b948285ac98c1e450f8f5c8637cccb692a7062553265e0929aa",
+      "round": 1
+    },
+    {
+      "label": "admitted_batch_1",
+      "candidate_no": "S000002",
+      "seconds": {
+        "read_decode": 1.5376734999881592,
+        "build_trace": 0.08745050001016352,
+        "release_context": 0.051582100000814535,
+        "total": 1.6767060999991372
+      },
+      "result_sha256": "eccc00379520fc95a4e70a9c180e2210bd14b7c3847680df939877c73ebc6622",
+      "round": 2
+    },
+    {
+      "label": "admitted_batch_2",
+      "candidate_no": "S050460",
+      "seconds": {
+        "read_decode": 1.6045749000040814,
+        "build_trace": 0.0884589000052074,
+        "release_context": 0.0514097999985097,
+        "total": 1.7444436000077985
+      },
+      "result_sha256": "577ac0c4c7206722569c1c82c908a298ad9e0051afd55f8587ce9d18e2754753",
+      "round": 2
+    },
+    {
+      "label": "admitted_batch_3",
+      "candidate_no": "S099797",
+      "seconds": {
+        "read_decode": 1.6099725000094622,
+        "build_trace": 0.09293639998941217,
+        "release_context": 0.06167480000294745,
+        "total": 1.7645837000018219
+      },
+      "result_sha256": "091165e0e1825911f9719537690672d94cbbf28573a11949eeedfdc8b24913f0",
+      "round": 2
+    },
+    {
+      "label": "admitted_batch_4",
+      "candidate_no": "S149993",
+      "seconds": {
+        "read_decode": 1.7573563999903854,
+        "build_trace": 0.08814630001143087,
+        "release_context": 0.04790929998853244,
+        "total": 1.8934119999903487
+      },
+      "result_sha256": "b1d5a0df01000eb278675dd63b65e8b071425d87af7f8ff801e0b4a95e17cf30",
+      "round": 2
+    },
+    {
+      "label": "unadmitted_above_cutoff",
+      "candidate_no": "S073470",
+      "seconds": {
+        "read_decode": 1.5917505999968853,
+        "build_trace": 0.08885439998994116,
+        "release_context": 0.05350670000188984,
+        "total": 1.7341116999887163
+      },
+      "result_sha256": "6bf355249f8758d967d70ce00fef07b711fa3d867d8c25b7e3fc6975bbcf8ae6",
+      "round": 2
+    },
+    {
+      "label": "unadmitted_below_cutoff",
+      "candidate_no": "S074889",
+      "seconds": {
+        "read_decode": 1.6174771999940276,
+        "build_trace": 0.09242890001041815,
+        "release_context": 0.05059719999553636,
+        "total": 1.7605032999999821
+      },
+      "result_sha256": "8765860138cd5b948285ac98c1e450f8f5c8637cccb692a7062553265e0929aa",
+      "round": 2
+    },
+    {
+      "label": "admitted_batch_1",
+      "candidate_no": "S000002",
+      "seconds": {
+        "read_decode": 1.6288155999936862,
+        "build_trace": 0.08989180000207853,
+        "release_context": 0.04669449999346398,
+        "total": 1.7654018999892287
+      },
+      "result_sha256": "eccc00379520fc95a4e70a9c180e2210bd14b7c3847680df939877c73ebc6622",
+      "round": 3
+    },
+    {
+      "label": "admitted_batch_2",
+      "candidate_no": "S050460",
+      "seconds": {
+        "read_decode": 1.5584693999990122,
+        "build_trace": 0.08774709999852348,
+        "release_context": 0.04433889999927487,
+        "total": 1.6905553999968106
+      },
+      "result_sha256": "577ac0c4c7206722569c1c82c908a298ad9e0051afd55f8587ce9d18e2754753",
+      "round": 3
+    },
+    {
+      "label": "admitted_batch_3",
+      "candidate_no": "S099797",
+      "seconds": {
+        "read_decode": 1.5947716000082437,
+        "build_trace": 0.08932099999219645,
+        "release_context": 0.04427650000434369,
+        "total": 1.7283691000047838
+      },
+      "result_sha256": "091165e0e1825911f9719537690672d94cbbf28573a11949eeedfdc8b24913f0",
+      "round": 3
+    },
+    {
+      "label": "admitted_batch_4",
+      "candidate_no": "S149993",
+      "seconds": {
+        "read_decode": 1.6074103999999352,
+        "build_trace": 0.08737690000270959,
+        "release_context": 0.044244599994271994,
+        "total": 1.7390318999969168
+      },
+      "result_sha256": "b1d5a0df01000eb278675dd63b65e8b071425d87af7f8ff801e0b4a95e17cf30",
+      "round": 3
+    },
+    {
+      "label": "unadmitted_above_cutoff",
+      "candidate_no": "S073470",
+      "seconds": {
+        "read_decode": 1.6259942000033334,
+        "build_trace": 0.09019050000642892,
+        "release_context": 0.04577419999986887,
+        "total": 1.7619589000096312
+      },
+      "result_sha256": "6bf355249f8758d967d70ce00fef07b711fa3d867d8c25b7e3fc6975bbcf8ae6",
+      "round": 3
+    },
+    {
+      "label": "unadmitted_below_cutoff",
+      "candidate_no": "S074889",
+      "seconds": {
+        "read_decode": 1.5648379000049317,
+        "build_trace": 0.08764209999935701,
+        "release_context": 0.044803099997807294,
+        "total": 1.697283100002096
+      },
+      "result_sha256": "8765860138cd5b948285ac98c1e450f8f5c8637cccb692a7062553265e0929aa",
+      "round": 3
+    }
+  ],
+  "run_id": "0113c1d3-e855-42db-a16f-2578e5f3ab78",
+  "dataset_id": "scale-v1-150000-5bbab6addf0ceeeb",
+  "business_sha256": "2c7f836191d40f314f5adacb154f430446f06817cfbe0dfbb3eeb47969d5dac4",
+  "full_result_sha256": "6e670b8e715fd6110df9457a8e385d80905f2bde09a8299450778f775bc44212",
+  "cases": [
+    {
+      "label": "admitted_batch_1",
+      "candidate_no": "S000002",
+      "expected": {
+        "admission": [
+          "1-H005",
+          17
+        ],
+        "candidate": {
+          "choice": "H005",
+          "choices": {
+            "3": [
+              "H001",
+              "H067",
+              "H069",
+              "H041"
+            ],
+            "4": [
+              "H105",
+              "H114",
+              "H142",
+              "H122",
+              "H123",
+              "H109"
+            ]
+          },
+          "id": "S000002",
+          "junior": "J111",
+          "name": "模拟考生000002",
+          "score": 690,
+          "second_choices": [
+            "H071",
+            "H039"
+          ],
+          "tie": 1
+        },
+        "trace": [
+          [
+            1,
+            [
+              "H005"
+            ],
+            [
+              "已录取至 1-H005"
+            ]
+          ],
+          [
+            2,
+            [
+              "H071",
+              "H039"
+            ],
+            [
+              "S000002 已在第一批录取，跳过第二批"
+            ]
+          ],
+          [
+            3,
+            [
+              "H001",
+              "H067",
+              "H069",
+              "H041"
+            ],
+            [
+              "S000002 已在前批录取，跳过"
+            ]
+          ],
+          [
+            4,
+            [
+              "H105",
+              "H114",
+              "H142",
+              "H122",
+              "H123",
+              "H109"
+            ],
+            [
+              "S000002 已在前批录取，跳过"
+            ]
+          ]
+        ]
+      },
+      "expected_sha256": "eccc00379520fc95a4e70a9c180e2210bd14b7c3847680df939877c73ebc6622"
+    },
+    {
+      "label": "admitted_batch_2",
+      "candidate_no": "S050460",
+      "expected": {
+        "admission": [
+          "2-H081-J230",
+          1
+        ],
+        "candidate": {
+          "choice": "",
+          "choices": {
+            "3": [
+              "H020",
+              "H016",
+              "H014",
+              "H009",
+              "H062"
+            ],
+            "4": [
+              "H114",
+              "H137",
+              "H136",
+              "H123"
+            ]
+          },
+          "id": "S050460",
+          "junior": "J230",
+          "name": "模拟考生050460",
+          "score": 758,
+          "second_choices": [
+            "H020",
+            "H081"
+          ],
+          "tie": 112
+        },
+        "trace": [
+          [
+            1,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            2,
+            [
+              "H020",
+              "H081"
+            ],
+            [
+              "G1 志愿1 S050460 2-H020-J230 名额已满",
+              "G1 志愿2 S050460 2-H081-J230 已录取"
+            ]
+          ],
+          [
+            3,
+            [
+              "H020",
+              "H016",
+              "H014",
+              "H009",
+              "H062"
+            ],
+            [
+              "S050460 已在前批录取，跳过"
+            ]
+          ],
+          [
+            4,
+            [
+              "H114",
+              "H137",
+              "H136",
+              "H123"
+            ],
+            [
+              "S050460 已在前批录取，跳过"
+            ]
+          ]
+        ]
+      },
+      "expected_sha256": "577ac0c4c7206722569c1c82c908a298ad9e0051afd55f8587ce9d18e2754753"
+    },
+    {
+      "label": "admitted_batch_3",
+      "candidate_no": "S099797",
+      "expected": {
+        "admission": [
+          "3-H053",
+          498
+        ],
+        "candidate": {
+          "choice": "",
+          "choices": {
+            "3": [
+              "H006",
+              "H053",
+              "H001",
+              "H039",
+              "H049"
+            ],
+            "4": [
+              "H107",
+              "H103",
+              "H148"
+            ]
+          },
+          "id": "S099797",
+          "junior": "J099",
+          "name": "模拟考生099797",
+          "score": 624,
+          "second_choices": [],
+          "tie": 521
+        },
+        "trace": [
+          [
+            1,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            2,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            3,
+            [
+              "H006",
+              "H053",
+              "H001",
+              "H039",
+              "H049"
+            ],
+            [
+              "G4 志愿1 S099797 3-H006 名额已满",
+              "G4 志愿2 S099797 3-H053 已录取"
+            ]
+          ],
+          [
+            4,
+            [
+              "H107",
+              "H103",
+              "H148"
+            ],
+            [
+              "S099797 已在前批录取，跳过"
+            ]
+          ]
+        ]
+      },
+      "expected_sha256": "091165e0e1825911f9719537690672d94cbbf28573a11949eeedfdc8b24913f0"
+    },
+    {
+      "label": "admitted_batch_4",
+      "candidate_no": "S149993",
+      "expected": {
+        "admission": [
+          "4-H121",
+          153
+        ],
+        "candidate": {
+          "choice": "",
+          "choices": {
+            "3": [],
+            "4": [
+              "H121",
+              "H119",
+              "H125",
+              "H113",
+              "H129",
+              "H149"
+            ]
+          },
+          "id": "S149993",
+          "junior": "J129",
+          "name": "模拟考生149993",
+          "score": 623,
+          "second_choices": [
+            "H041",
+            "H035",
+            "H068"
+          ],
+          "tie": 786
+        },
+        "trace": [
+          [
+            1,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            2,
+            [
+              "H041",
+              "H035",
+              "H068"
+            ],
+            [
+              "G4 志愿1 S149993 2-H041-J129 低于计划控制线",
+              "G4 志愿2 S149993 2-H035-J129 低于计划控制线",
+              "G4 志愿3 S149993 2-H068-J129 名额已满"
+            ]
+          ],
+          [
+            3,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            4,
+            [
+              "H121",
+              "H119",
+              "H125",
+              "H113",
+              "H129",
+              "H149"
+            ],
+            [
+              "G4 志愿1 S149993 4-H121 已录取"
+            ]
+          ]
+        ]
+      },
+      "expected_sha256": "b1d5a0df01000eb278675dd63b65e8b071425d87af7f8ff801e0b4a95e17cf30"
+    },
+    {
+      "label": "unadmitted_above_cutoff",
+      "candidate_no": "S073470",
+      "expected": {
+        "admission": null,
+        "candidate": {
+          "choice": "",
+          "choices": {
+            "3": [
+              "H010",
+              "H097"
+            ],
+            "4": [
+              "H103"
+            ]
+          },
+          "id": "S073470",
+          "junior": "J291",
+          "name": "模拟考生073470",
+          "score": 612,
+          "second_choices": [],
+          "tie": 321
+        },
+        "trace": [
+          [
+            1,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            2,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            3,
+            [
+              "H010",
+              "H097"
+            ],
+            [
+              "G4 志愿1 S073470 3-H010 名额已满",
+              "G4 志愿2 S073470 3-H097 名额已满"
+            ]
+          ],
+          [
+            4,
+            [
+              "H103"
+            ],
+            [
+              "G4 志愿1 S073470 4-H103 名额已满"
+            ]
+          ]
+        ]
+      },
+      "expected_sha256": "6bf355249f8758d967d70ce00fef07b711fa3d867d8c25b7e3fc6975bbcf8ae6"
+    },
+    {
+      "label": "unadmitted_below_cutoff",
+      "candidate_no": "S074889",
+      "expected": {
+        "admission": null,
+        "candidate": {
+          "choice": "",
+          "choices": {
+            "3": [],
+            "4": [
+              "H128",
+              "H102",
+              "H148",
+              "H124",
+              "H122",
+              "H126"
+            ]
+          },
+          "id": "S074889",
+          "junior": "J485",
+          "name": "模拟考生074889",
+          "score": 584,
+          "second_choices": [
+            "H031"
+          ],
+          "tie": 242
+        },
+        "trace": [
+          [
+            1,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            2,
+            [
+              "H031"
+            ],
+            [
+              "S074889 低于全市控制线，跳过第二批"
+            ]
+          ],
+          [
+            3,
+            [],
+            [
+              "本批未填志愿"
+            ]
+          ],
+          [
+            4,
+            [
+              "H128",
+              "H102",
+              "H148",
+              "H124",
+              "H122",
+              "H126"
+            ],
+            [
+              "S074889 低于全市控制线，跳过"
+            ]
+          ]
+        ]
+      },
+      "expected_sha256": "8765860138cd5b948285ac98c1e450f8f5c8637cccb692a7062553265e0929aa"
+    }
+  ],
+  "source_sha256": {
+    "admission.py": "b5c4d76daa21a4a46b1a84634377127003d3aeaaddf977558451355a0f81cf9f",
+    "second_batch.py": "d80c8400b7f854d05802b8bd952c8fa929c83f5ca1067d37710409664579337d",
+    "third_batch.py": "610fc4505a7c0058d9e884130af8fc9b7171dca729eeb52c3f0713ecfd60e064",
+    "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+    "generate_scale_data.py": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+    "benchmark_admissions.py": "9aec244b97c33111f818380b4d6b978afb14c0cc8c1683051c6f5083f71da181",
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\run_scale_admissions.py": "511541768dd1c0232aeb2ce9239d778668de2cbb141539ccfda63281d92b5fe1",
+    "import_scale_data.py": "385905b3fdee4769d3368e387dbcc98a8f6f3021e2a319e72999668c4616e509",
+    "schema_scale.sql": "11188bb977aceb6fbb606a29280e31c4603d0f544d1e90996c1f06b8da732e20",
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\save_scale_run.py": "2c1830279574bdf6b400b8590d9a560f472c39df533881f7a58f71c515d6e190",
+    "query_candidate.py": "531656cda94f3256bd44febec4ca91d3a3096b67dfcb9f9ef8772092b1069aab",
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\benchmark_scale_candidate_queries.py": "2313bb37bd39965cfac449d07bd9032497c804cbb376165ac75ea0669d9339a3"
+  },
+  "file_sha256": {
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\mysql_save_150000_v2\\save_report.json": "7a331af5216cb513e6eadd187caf4e33f0f825b77b8d290aec88f87d103831ae",
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\scale_150000\\data.json": "437a04283af6f5bf018e56488e764b729be43e097a5bcd440b64df09d0dd4194",
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\mysql_run_150000_v1\\baseline_result.json": "6e670b8e715fd6110df9457a8e385d80905f2bde09a8299450778f775bc44212"
+  },
+  "local_prepare_seconds": 3.2554910000035306,
+  "connect_seconds": 0.0738271000009263,
+  "server": {
+    "version": "8.4.13",
+    "max_allowed_packet": 67108864,
+    "log_bin": 1
+  },
+  "progress": {
+    "phase": "timing",
+    "round": 3,
+    "candidate_no": "S074889"
+  },
+  "aggregates": [
+    {
+      "label": "admitted_batch_1",
+      "candidate_no": "S000002",
+      "seconds": {
+        "read_decode": {
+          "min": 1.4908693000033963,
+          "median": 1.5376734999881592,
+          "max": 1.6288155999936862
+        },
+        "build_trace": {
+          "min": 0.08745050001016352,
+          "median": 0.08974099998886231,
+          "max": 0.08989180000207853
+        },
+        "release_context": {
+          "min": 0.04669449999346398,
+          "median": 0.050480700010666624,
+          "max": 0.051582100000814535
+        },
+        "total": {
+          "min": 1.6310910000029253,
+          "median": 1.6767060999991372,
+          "max": 1.7654018999892287
+        }
+      }
+    },
+    {
+      "label": "admitted_batch_2",
+      "candidate_no": "S050460",
+      "seconds": {
+        "read_decode": {
+          "min": 1.5584693999990122,
+          "median": 1.6045749000040814,
+          "max": 1.6950044999975944
+        },
+        "build_trace": {
+          "min": 0.08774709999852348,
+          "median": 0.0884589000052074,
+          "max": 0.10300509999797214
+        },
+        "release_context": {
+          "min": 0.04433889999927487,
+          "median": 0.0514097999985097,
+          "max": 0.07338430000527296
+        },
+        "total": {
+          "min": 1.6905553999968106,
+          "median": 1.7444436000077985,
+          "max": 1.8713939000008395
+        }
+      }
+    },
+    {
+      "label": "admitted_batch_3",
+      "candidate_no": "S099797",
+      "seconds": {
+        "read_decode": {
+          "min": 1.560780200001318,
+          "median": 1.5947716000082437,
+          "max": 1.6099725000094622
+        },
+        "build_trace": {
+          "min": 0.08932099999219645,
+          "median": 0.09293639998941217,
+          "max": 0.0939455000043381
+        },
+        "release_context": {
+          "min": 0.04427650000434369,
+          "median": 0.05137109999486711,
+          "max": 0.06167480000294745
+        },
+        "total": {
+          "min": 1.7060968000005232,
+          "median": 1.7283691000047838,
+          "max": 1.7645837000018219
+        }
+      }
+    },
+    {
+      "label": "admitted_batch_4",
+      "candidate_no": "S149993",
+      "seconds": {
+        "read_decode": {
+          "min": 1.6074103999999352,
+          "median": 1.6775882999936584,
+          "max": 1.7573563999903854
+        },
+        "build_trace": {
+          "min": 0.08737690000270959,
+          "median": 0.08814630001143087,
+          "max": 0.09665099999983795
+        },
+        "release_context": {
+          "min": 0.044244599994271994,
+          "median": 0.04764509999949951,
+          "max": 0.04790929998853244
+        },
+        "total": {
+          "min": 1.7390318999969168,
+          "median": 1.821884399992996,
+          "max": 1.8934119999903487
+        }
+      }
+    },
+    {
+      "label": "unadmitted_above_cutoff",
+      "candidate_no": "S073470",
+      "seconds": {
+        "read_decode": {
+          "min": 1.5699831999954768,
+          "median": 1.5917505999968853,
+          "max": 1.6259942000033334
+        },
+        "build_trace": {
+          "min": 0.08885439998994116,
+          "median": 0.09019050000642892,
+          "max": 0.0919175000017276
+        },
+        "release_context": {
+          "min": 0.04577419999986887,
+          "median": 0.05350670000188984,
+          "max": 0.05682569999771658
+        },
+        "total": {
+          "min": 1.718726399994921,
+          "median": 1.7341116999887163,
+          "max": 1.7619589000096312
+        }
+      }
+    },
+    {
+      "label": "unadmitted_below_cutoff",
+      "candidate_no": "S074889",
+      "seconds": {
+        "read_decode": {
+          "min": 1.5648379000049317,
+          "median": 1.5711192000017036,
+          "max": 1.6174771999940276
+        },
+        "build_trace": {
+          "min": 0.08764209999935701,
+          "median": 0.08885809998901095,
+          "max": 0.09242890001041815
+        },
+        "release_context": {
+          "min": 0.044803099997807294,
+          "median": 0.05059719999553636,
+          "max": 0.05465140000160318
+        },
+        "total": {
+          "min": 1.697283100002096,
+          "median": 1.7146286999923177,
+          "max": 1.7605032999999821
+        }
+      }
+    }
+  ],
+  "verified_query_count": 24
+}

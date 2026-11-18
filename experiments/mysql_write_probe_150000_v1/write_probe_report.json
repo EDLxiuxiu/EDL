@@ -1,0 +1,64 @@
+{
+  "status": "verified_rolled_back",
+  "diagnostic_run_id": "b65c378c-7cc4-4228-9d8f-1b13a3802cca",
+  "database": "admissionsim_scale_150000",
+  "started_at": "2026-11-18T16:35:18.298469+08:00",
+  "save_report": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\mysql_save_150000_v1\\save_report.json",
+  "source_sha256": {
+    "probe": "3cd1bfc6154a55b58afce325cb5d36f38bd8a40e07e9e13cd8d0965ac1ba010b",
+    "save_scale_run.py": "2c1830279574bdf6b400b8590d9a560f472c39df533881f7a58f71c515d6e190"
+  },
+  "conditions": {
+    "scope": "只插入一条admission_runs，随后回滚并用新连接查无记录",
+    "measurement_runs": 1,
+    "commit_called": false,
+    "driver": "use_pure=True；复用原连接函数"
+  },
+  "seconds": {
+    "local_prepare": 2.0559857999905944,
+    "insert_run": 6.5649542000028305,
+    "rollback": 0.036854400008451194,
+    "new_connection_check": 0.04453289999219123
+  },
+  "phase": "finished",
+  "phase_started_at": "2026-11-18T16:35:37.573284+08:00",
+  "source_run_id": "f1413836-d79a-4772-8d39-e714b6123252",
+  "payload_sha256": [
+    "e8c446c755e315fd7b44285437f2388e28c09ce814c06eaf18cbcd4c0d4d80ef",
+    "6a43f43c29c323ebc5fbb7672ac84bc6e9147c3563f601076f32228341785b67"
+  ],
+  "server": {
+    "database": "admissionsim_scale_150000",
+    "version": "8.4.13",
+    "max_allowed_packet": 67108864,
+    "sql_mode": "ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",
+    "log_bin": 1,
+    "binlog_format": "ROW",
+    "binlog_cache_size": 32768,
+    "max_binlog_cache_size": 18446744073709547520,
+    "tmpdir": "C:\\WINDOWS\\SERVIC~2\\NETWOR~1\\AppData\\Local\\Temp"
+  },
+  "counts_before": {
+    "admission_runs": 0,
+    "run_plan_balances": 0,
+    "run_admission_details": 0,
+    "run_seat_transfers": 0
+  },
+  "uptime_before": 2765,
+  "command_bytes": 60106164,
+  "affected_rows": 1,
+  "row_before_rollback": [
+    150000,
+    115291,
+    38367063,
+    23019006
+  ],
+  "rollback_returned": true,
+  "counts_after_rollback": {
+    "admission_runs": 0,
+    "run_plan_balances": 0,
+    "run_admission_details": 0,
+    "run_seat_transfers": 0
+  },
+  "uptime_after": 2772
+}

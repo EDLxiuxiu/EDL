@@ -1,0 +1,62 @@
+{
+  "status": "verified",
+  "database": "admissionsim_scale_150000",
+  "dataset_id": "scale-v1-150000-5bbab6addf0ceeeb",
+  "data_sha256": "437a04283af6f5bf018e56488e764b729be43e097a5bcd440b64df09d0dd4194",
+  "batch_size": 1000,
+  "expected_counts": {
+    "junior_schools": 500,
+    "senior_schools": 150,
+    "candidates": 150000,
+    "admission_plans": 48250,
+    "autonomous_qualifications": 15807,
+    "candidate_choices": 1149399,
+    "experiment_dataset": 1
+  },
+  "started_at": "2026-11-18T14:45:34.439206+08:00",
+  "environment": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "connector": "26.10.0"
+  },
+  "source_sha256": {
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\import_scale_data.py": "385905b3fdee4769d3368e387dbcc98a8f6f3021e2a319e72999668c4616e509",
+    "generate_scale_data.py": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+    "schema_scale.sql": "11188bb977aceb6fbb606a29280e31c4603d0f544d1e90996c1f06b8da732e20"
+  },
+  "seconds": {
+    "source_load_validate": 0.9419488999992609,
+    "connect": 0.09185720000823494,
+    "precheck": 0.007821699997293763,
+    "manifest_insert": 0.001058599998941645,
+    "insert_junior_schools": 0.0070580000028712675,
+    "insert_senior_schools": 0.001443400004063733,
+    "insert_candidates": 8.300466300002881,
+    "insert_admission_plans": 2.9293172000034247,
+    "insert_autonomous_qualifications": 0.24430520000169054,
+    "insert_candidate_choices": 94.63271949999034,
+    "verify_before_commit": 20.28802690000157,
+    "commit": 0.1722587999975076,
+    "post_commit_check": 0.6147630999912508,
+    "write_and_commit": 106.28862700000172
+  },
+  "conditions": "单事务；按批发送；写入计时含行生成，不含源文件读取和内容核对",
+  "server": {
+    "version": "8.4.13",
+    "max_allowed_packet": 67108864,
+    "log_bin": 1
+  },
+  "actual_counts": {
+    "junior_schools": 500,
+    "senior_schools": 150,
+    "candidates": 150000,
+    "admission_plans": 48250,
+    "autonomous_qualifications": 15807,
+    "candidate_choices": 1149399,
+    "experiment_dataset": 1,
+    "admission_runs": 0,
+    "run_plan_balances": 0,
+    "run_admission_details": 0,
+    "run_seat_transfers": 0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "status": "matches_baseline",
+  "database": "admissionsim_scale_150000",
+  "created_at": "2026-11-18T14:59:16.512286+08:00",
+  "dataset_id": "scale-v1-150000-5bbab6addf0ceeeb",
+  "data_sha256": "437a04283af6f5bf018e56488e764b729be43e097a5bcd440b64df09d0dd4194",
+  "reference": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\baseline_150000_v1",
+  "source_sha256": {
+    "admission.py": "b5c4d76daa21a4a46b1a84634377127003d3aeaaddf977558451355a0f81cf9f",
+    "second_batch.py": "d80c8400b7f854d05802b8bd952c8fa929c83f5ca1067d37710409664579337d",
+    "third_batch.py": "610fc4505a7c0058d9e884130af8fc9b7171dca729eeb52c3f0713ecfd60e064",
+    "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+    "generate_scale_data.py": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886",
+    "benchmark_admissions.py": "9aec244b97c33111f818380b4d6b978afb14c0cc8c1683051c6f5083f71da181",
+    "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\run_scale_admissions.py": "511541768dd1c0232aeb2ce9239d778668de2cbb141539ccfda63281d92b5fe1",
+    "import_scale_data.py": "385905b3fdee4769d3368e387dbcc98a8f6f3021e2a319e72999668c4616e509",
+    "schema_scale.sql": "11188bb977aceb6fbb606a29280e31c4603d0f544d1e90996c1f06b8da732e20"
+  },
+  "environment": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "connector": "26.10.0"
+  },
+  "server": {
+    "version": "8.4.13",
+    "max_allowed_packet": 67108864,
+    "log_bin": 1
+  },
+  "summary": {
+    "candidates": 150000,
+    "plans": 48250,
+    "initial_seats": 120000,
+    "batch_admitted": {
+      "1": 6184,
+      "2": 39722,
+      "3": 50094,
+      "4": 19291
+    },
+    "admitted": 115291,
+    "remaining_seats": 4709,
+    "transfer_rows": 8378,
+    "log_rows": 514014
+  },
+  "seconds": {
+    "local_prepare": 0.9079100999952061,
+    "connect": 0.15488090000872035,
+    "metadata_read": 0.0011432999890530482,
+    "mysql_read_inputs": 3.1090952000085963,
+    "input_compare": 0.135217900009593,
+    "validate_inputs": 0.31984660000307485,
+    "batch_1": 0.7544344000052661,
+    "batch_2": 0.7326905000081751,
+    "batch_3": 0.5766850999934832,
+    "batch_4": 0.25542940000013914,
+    "admissions_total": 2.6450712000078056,
+    "result_validate": 0.24624059999769088,
+    "reference_compare": 0.18893360000220127,
+    "result_serialize": 0.18719729999429546,
+    "local_result_write": 0.016233100002864376
+  },
+  "business_sha256": "2c7f836191d40f314f5adacb154f430446f06817cfbe0dfbb3eeb47969d5dac4",
+  "full_result_sha256": "6e670b8e715fd6110df9457a8e385d80905f2bde09a8299450778f775bc44212",
+  "conditions": {
+    "measurement_runs": 1,
+    "database_readonly": true,
+    "result_saved_to_mysql": false,
+    "memory_measured": false,
+    "scope": "MySQL 只读快照读取与内存投档；单次测量，尚未保存数据库结果",
+    "cache": "未清空 MySQL 缓冲池和操作系统缓存",
+    "read_timing": "四条输入查询、传输、驱动转换与 Python 输入结构构建"
+  }
+}

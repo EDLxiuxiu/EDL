@@ -1,0 +1,44 @@
+{
+  "status": "verified",
+  "phase": "finished",
+  "diagnostic_id": "1ec18729-2428-4261-b58d-87c386494933",
+  "database": "admissionsim_scale_150000",
+  "started_at": "2026-11-18T16:24:57.702968+08:00",
+  "save_report": "C:\\Users\\24087\\Desktop\\软件系统开发实践课程设计\\experiments\\mysql_save_150000_v1\\save_report.json",
+  "source_sha256": "ea2f94c539d67e7511c77f95b9090db3fe2698871c1db7a6bf3dc5cc3ef312fe",
+  "conditions": {
+    "readonly": true,
+    "measurement_runs": 1,
+    "driver": "use_pure=True；复用原连接函数",
+    "scope": "传输两份原始JSON文本，返回长度和SHA256；不执行结果保存"
+  },
+  "seconds": {
+    "local_prepare": 2.039290400003665,
+    "connect": 0.2901086000056239,
+    "large_select": 2.303951900001266
+  },
+  "source_run_id": "f1413836-d79a-4772-8d39-e714b6123252",
+  "expected": [
+    30844846,
+    "e8c446c755e315fd7b44285437f2388e28c09ce814c06eaf18cbcd4c0d4d80ef",
+    21409247,
+    "6a43f43c29c323ebc5fbb7672ac84bc6e9147c3563f601076f32228341785b67"
+  ],
+  "server": {
+    "version": "8.4.13",
+    "max_allowed_packet": 67108864,
+    "sql_mode": "ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",
+    "net_read_timeout": 30,
+    "net_write_timeout": 60,
+    "connection_id": 10
+  },
+  "uptime_before": 2142,
+  "command_bytes": 60106166,
+  "actual": [
+    30844846,
+    "e8c446c755e315fd7b44285437f2388e28c09ce814c06eaf18cbcd4c0d4d80ef",
+    21409247,
+    "6a43f43c29c323ebc5fbb7672ac84bc6e9147c3563f601076f32228341785b67"
+  ],
+  "uptime_after": 2144
+}
