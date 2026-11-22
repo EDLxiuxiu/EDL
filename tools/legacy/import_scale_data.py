@@ -10,7 +10,7 @@ from pathlib import Path
 from time import perf_counter
 
 import mysql.connector
-from generate_scale_data import summarize, validate_dataset
+from admissions_app.datasets import summarize, validate_dataset
 
 DATABASE = "admissionsim_scale_150000"
 TABLES = {
@@ -221,7 +221,7 @@ def main():
                         "connector": mysql.connector.__version__},
         "source_sha256": {
             name: hashlib.sha256(Path(name).read_bytes()).hexdigest()
-            for name in (__file__, "generate_scale_data.py", "schema_scale.sql")},
+            for name in (__file__, "admissions_app/datasets.py", "database/legacy/schema_scale.sql")},
         "seconds": seconds,
         "conditions": "单事务；按批发送；写入计时含行生成，不含源文件读取和内容核对",
     }

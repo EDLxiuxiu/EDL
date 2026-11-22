@@ -12,11 +12,18 @@ from .service import ROOT, Service, provenance
 
 
 def create_app(repository, *, testing=False):
-    app = Flask(__name__, template_folder=str(ROOT / "templates"), static_folder=str(ROOT / "static"))
+    app = Flask(__name__, template_folder=str(ROOT / "admissions_app/templates"), static_folder=str(ROOT / "admissions_app/static"))
     app.config.update(SECRET_KEY=secrets.token_hex(32), MAX_CONTENT_LENGTH=64 * 1024 * 1024,
                       SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Strict", TESTING=testing)
     service = Service(repository)
     app.extensions.update(repository=repository, admission_service=service)
+
+    @app.get("/health")
+    def health():
+        response = jsonify(application="admissionsim-course-design",
+                           storage="memory" if repository.mode.startswith("内存") else "mysql")
+        response.headers["Cache-Control"] = "no-store"
+        return response
 
     @app.before_request
     def csrf():
@@ -84,7 +91,7 @@ def create_app(repository, *, testing=False):
 
     @app.post("/datasets/generate")
     def generate():
-        from generate_scale_data import build_dataset
+        from admissions_app.datasets import build_dataset
         count, seed = int(request.form["count"]), int(request.form["seed"])
         if not 20 <= count <= 150000:
             raise ValueError("生成规模须在 20 至 150000 之间")

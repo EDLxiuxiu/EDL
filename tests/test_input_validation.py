@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import patch
 
-from run_admissions import run_all_batches
-from third_batch import PLANS, build_candidates
+from admissions_app.core.runner import run_all_batches
+from admissions_app.core.third_batch import PLANS, build_candidates
 
 
 class InputValidationTests(unittest.TestCase):
@@ -14,7 +14,7 @@ class InputValidationTests(unittest.TestCase):
 
     def assert_rejected_before_admission(self, expected_message):
         # 用模拟函数记录第一批函数是否被调用。
-        with patch("run_admissions.run_first_batch") as first_batch:
+        with patch("admissions_app.core.runner.run_first_batch") as first_batch:
             with self.assertRaises(ValueError) as error:
                 run_all_batches(self.candidates, PLANS)
             self.assertIn(expected_message, str(error.exception))

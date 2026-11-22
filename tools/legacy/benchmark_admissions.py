@@ -13,11 +13,11 @@ from pathlib import Path
 from time import perf_counter
 from unittest.mock import patch
 
-import run_admissions as core
-from generate_scale_data import load_dataset, summarize, validate_dataset
-from second_batch import CITY_CUTOFF, GRADIENT_LINES
+import admissions_app.core.runner as core
+from admissions_app.datasets import load_dataset, summarize, validate_dataset
+from admissions_app.core.second_batch import CITY_CUTOFF, GRADIENT_LINES
 
-ROOT = Path(core.__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def encode(value):
@@ -31,10 +31,10 @@ def file_sha(path):
 
 
 def source_hashes():
-    names = ("admission.py", "second_batch.py", "third_batch.py",
-             "run_admissions.py", "generate_scale_data.py")
+    names = ("admissions_app/core/first_batch.py", "admissions_app/core/second_batch.py", "admissions_app/core/third_batch.py",
+             "admissions_app/core/runner.py", "admissions_app/datasets.py")
     values = {name: file_sha(ROOT / name) for name in names}
-    values[Path(__file__).name] = file_sha(__file__)
+    values[Path(__file__).resolve().relative_to(ROOT).as_posix()] = file_sha(__file__)
     return values
 
 

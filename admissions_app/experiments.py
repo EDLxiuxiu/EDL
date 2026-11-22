@@ -11,8 +11,8 @@ from pathlib import Path
 from time import perf_counter
 from uuid import uuid4
 
-from query_candidate import build_trace, read_candidate
-from report_admission_run import build_report, read_run
+from tools.legacy.query_candidate import build_trace, read_candidate
+from tools.legacy.report_admission_run import build_report, read_run
 
 from .domain import Rules, digest, encode, normalize, projection
 from .repository import MySQLRepository, PLAN_FIELDS
@@ -302,7 +302,7 @@ def verify_local(out):
         path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     save()
     try:
-        completed = subprocess.run([sys.executable, "-B", "-m", "unittest", "-v", "test_admissions", "test_input_validation", "tests.test_system"],
+        completed = subprocess.run([sys.executable, "-B", "-m", "unittest", "-v", "tests.test_admissions", "tests.test_input_validation", "tests.test_system"],
                                    cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace",
                                    env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"})
         (out / "unittest.txt").write_text(completed.stdout + completed.stderr, encoding="utf-8")

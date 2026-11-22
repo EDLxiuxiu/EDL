@@ -1,8 +1,8 @@
 import unittest
 
-from compare_choices import run_case
-from run_admissions import check_balances, run_all_batches
-from third_batch import PLANS, build_candidates
+from tests.choice_cases import run_case
+from admissions_app.core.runner import check_balances, run_all_batches
+from admissions_app.core.third_batch import PLANS, build_candidates
 
 
 class AdmissionTests(unittest.TestCase):

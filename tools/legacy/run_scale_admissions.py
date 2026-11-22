@@ -11,10 +11,10 @@ from time import perf_counter
 from unittest.mock import patch
 
 import mysql.connector
-import run_admissions as core
-from benchmark_admissions import check_result, encode
-from import_scale_data import DATABASE, read_source
-from second_batch import CITY_CUTOFF, GRADIENT_LINES
+import admissions_app.core.runner as core
+from tools.legacy.benchmark_admissions import check_result, encode
+from tools.legacy.import_scale_data import DATABASE, read_source
+from admissions_app.core.second_batch import CITY_CUTOFF, GRADIENT_LINES
 
 
 def file_sha(path):
@@ -118,7 +118,7 @@ def main():
 
     sources = {name: file_sha(name) for name in reference["source_sha256"]}
     sources.update({str(path): file_sha(path) for path in
-                    (Path(__file__), Path("import_scale_data.py"), Path("schema_scale.sql"))})
+                    (Path(__file__), Path("tools/legacy/import_scale_data.py"), Path("database/legacy/schema_scale.sql"))})
     args.out = args.out.resolve()
     args.out.mkdir(parents=True, exist_ok=False)
     print("数据集：", manifest["dataset_id"])

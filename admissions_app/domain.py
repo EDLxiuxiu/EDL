@@ -6,10 +6,10 @@ import re
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 
-from admission import ranks, run_first_batch
-from run_admissions import check_balances, validate_inputs
-from second_batch import run_second_batch
-from third_batch import PLANS, build_candidates, run_general_batch
+from admissions_app.core.first_batch import ranks, run_first_batch
+from admissions_app.core.runner import check_balances, validate_inputs
+from admissions_app.core.second_batch import run_second_batch
+from admissions_app.core.third_batch import PLANS, build_candidates, run_general_batch
 
 LIMITS = {1: 1, 2: 3, 3: 6, 4: 6}
 LOG_KEYS = {2: "second_log", 3: "third_log", 4: "fourth_log"}

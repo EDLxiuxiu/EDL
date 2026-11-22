@@ -6,7 +6,7 @@ from pathlib import Path
 from time import perf_counter
 from uuid import uuid4
 
-from save_scale_run import (
+from tools.legacy.save_scale_run import (
     DATABASE, RUN_SQL, command_bytes, connect, load_local,
     read_json, serialize, sha, write_json,
 )
@@ -49,7 +49,7 @@ def main():
         "status": "preparing", "diagnostic_run_id": run_id, "database": DATABASE,
         "started_at": now(), "save_report": str(args.save_report.resolve()),
         "source_sha256": {
-            "probe": sha(__file__), "save_scale_run.py": sha("save_scale_run.py")},
+            "probe": sha(__file__), "tools/legacy/save_scale_run.py": sha("tools/legacy/save_scale_run.py")},
         "conditions": {
             "scope": "只插入一条admission_runs，随后回滚并用新连接查无记录",
             "measurement_runs": 1, "commit_called": False,

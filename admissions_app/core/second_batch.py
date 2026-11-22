@@ -1,5 +1,5 @@
-from admission import ranks as first_batch_ranks
-from admission import run_first_batch
+from admissions_app.core.first_batch import ranks as first_batch_ranks
+from admissions_app.core.first_batch import run_first_batch
 
 
 CITY_CUTOFF = 600

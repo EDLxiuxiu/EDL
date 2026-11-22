@@ -1,4 +1,4 @@
-"""唯一主系统命令入口。密码只在本机 getpass 提示中输入。"""
+"""系统维护入口；普通使用直接双击根目录的 00_启动系统.bat。"""
 import argparse
 import json
 from getpass import getpass
@@ -7,6 +7,7 @@ from pathlib import Path
 from admissions_app.domain import Rules, normalize, sample_dataset
 from admissions_app.repository import MemoryRepository, MySQLRepository, connection_settings
 from admissions_app.service import ROOT, Service, provenance
+from admissions_app.launcher import open_existing, serve
 
 
 def initialize_database(password):
@@ -15,7 +16,7 @@ def initialize_database(password):
     with mysql.connector.connect(host=settings["host"], port=settings["port"], user="root", password=password,
                                  charset="utf8mb4", use_pure=True) as connection:
         with connection.cursor() as cursor:
-            sql = (ROOT / "schema_app.sql").read_text(encoding="utf-8")
+            sql = (ROOT / "database" / "schema_app.sql").read_text(encoding="utf-8")
             sql = "\n".join(line for line in sql.splitlines() if not line.lstrip().startswith("--"))
             for statement in sql.split(";"):
                 if statement.strip():
@@ -37,6 +38,8 @@ def main():
     web = sub.add_parser("web", help="启动本机 Flask 界面")
     web.add_argument("--demo", action="store_true", help="内存演示，不连接 MySQL，重启清空")
     web.add_argument("--port", type=int, default=5000)
+    web.add_argument("--open-browser", action="store_true", help="服务就绪后自动打开浏览器")
+    web.add_argument("--credential-file", type=Path, help="本人授权的本机应用密码文件；不输出或写入报告")
     imp = sub.add_parser("import", help="导入新数据版本；不覆盖旧版本")
     imp.add_argument("path", nargs="?", type=Path, help="data.json；省略则使用 20 人样例")
     imp.add_argument("--label", default="导入数据")
@@ -66,11 +69,18 @@ def main():
         initialize_database(getpass("请输入现有 root 密码（不保存）："))
         print("独立主库 admissionsim_app 初始化完成；账号密码没有改变")
         return
+    if args.command == "web" and args.open_browser:
+        if open_existing(args.port, "memory" if args.demo else "mysql"):
+            return
     if args.command == "web" and args.demo:
         repository = MemoryRepository()
         repository.put_dataset(sample_dataset(), "20 人原始样例")
     else:
-        password = getpass("请输入现有 admission_app 应用密码（仅保留在当前进程内存）：")
+        credential = args.credential_file if args.command == "web" else None
+        if credential is not None and not credential.is_absolute():
+            credential = ROOT / credential
+        password = credential.read_text(encoding="utf-8-sig").strip() if credential and credential.is_file() else getpass(
+            "请输入现有 admission_app 应用密码（仅保留在当前进程内存）：")
         if args.command in ("benchmark", "accept"):
             from admissions_app.experiments import acceptance, benchmark
             if args.command == "benchmark":
@@ -80,9 +90,7 @@ def main():
             return
         repository = MySQLRepository(password)
     if args.command == "web":
-        from admissions_app.web import create_app
-        print("存储模式：", repository.mode)
-        create_app(repository).run(host="127.0.0.1", port=args.port, debug=False, use_reloader=False, threaded=True)
+        serve(repository, port=args.port, open_browser=args.open_browser)
     elif args.command == "import":
         data = normalize(json.loads(args.path.read_text(encoding="utf-8"))) if args.path else sample_dataset()
         print("数据版本：", repository.put_dataset(data, args.label))

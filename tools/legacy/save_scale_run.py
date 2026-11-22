@@ -12,10 +12,10 @@ from uuid import UUID, uuid4
 import mysql.connector
 from mysql.connector.conversion import MySQLConverter
 
-from benchmark_admissions import check_result, encode
-from import_scale_data import DATABASE, read_source, verify_database
-from run_admissions import CHOICE_LIMITS
-from second_batch import CITY_CUTOFF, GRADIENT_LINES
+from tools.legacy.benchmark_admissions import check_result, encode
+from tools.legacy.import_scale_data import DATABASE, read_source, verify_database
+from admissions_app.core.runner import CHOICE_LIMITS
+from admissions_app.core.second_batch import CITY_CUTOFF, GRADIENT_LINES
 
 LOG_KEYS = ("first_reasons", "second_log", "third_log", "fourth_log")
 RUN_SQL = (

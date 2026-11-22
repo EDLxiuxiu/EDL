@@ -9,7 +9,7 @@ from admissions_app.domain import Rules, advance, digest, edit_entity, initial_s
 from admissions_app.repository import Conflict, MemoryRepository, MySQLRepository, packed, unpacked
 from admissions_app.service import Service
 from admissions_app.web import create_app
-from run_admissions import run_all_batches
+from admissions_app.core.runner import run_all_batches
 
 
 class DomainTests(unittest.TestCase):

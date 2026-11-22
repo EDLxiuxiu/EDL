@@ -1,0 +1,162 @@
+[
+  {
+    "old_path": "admission.py",
+    "new_path": "admissions_app/core/first_batch.py",
+    "before_edit_sha256": "1bebdf284043d05c36e71ca9ac6ba8ce014aebb6994e7229a6287998afee777e"
+  },
+  {
+    "old_path": "second_batch.py",
+    "new_path": "admissions_app/core/second_batch.py",
+    "before_edit_sha256": "d7bd11667b75d9fcd0d8225c80bb871c054308d9e36957f805fc6563bc8aec3d"
+  },
+  {
+    "old_path": "third_batch.py",
+    "new_path": "admissions_app/core/third_batch.py",
+    "before_edit_sha256": "003bb1e95051a1f9257e638aaa90d1a82ec557d8441ff06d9179d2abd08c1044"
+  },
+  {
+    "old_path": "run_admissions.py",
+    "new_path": "admissions_app/core/runner.py",
+    "before_edit_sha256": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799"
+  },
+  {
+    "old_path": "generate_scale_data.py",
+    "new_path": "admissions_app/datasets.py",
+    "before_edit_sha256": "22e25bca5b3ae898223f9009e198d6deb265470dbeddb6c3a7f7dd16cf0de886"
+  },
+  {
+    "old_path": "config.example.json",
+    "new_path": "config/config.example.json",
+    "before_edit_sha256": "bc69f4bbbb2106ffadcacbb1631f3afb09043899487ce1038358e7857fb92a58"
+  },
+  {
+    "old_path": "schema_app.sql",
+    "new_path": "database/schema_app.sql",
+    "before_edit_sha256": "606a4d664d880744a45cf657dfe787f6d05fb12d3495d73a2e49a46886aa1f27"
+  },
+  {
+    "old_path": "schema.sql",
+    "new_path": "database/legacy/schema.sql",
+    "before_edit_sha256": "161bb010d8ed8aa7a605cc9be21a45245610672456a7d9c1c4b03046ac4e3d53"
+  },
+  {
+    "old_path": "schema_runs.sql",
+    "new_path": "database/legacy/schema_runs.sql",
+    "before_edit_sha256": "c220dd55cc13432c3e087c6d2b508138d8be6d4493402b2f776c1d3ab4c46959"
+  },
+  {
+    "old_path": "schema_scale.sql",
+    "new_path": "database/legacy/schema_scale.sql",
+    "before_edit_sha256": "11188bb977aceb6fbb606a29280e31c4603d0f544d1e90996c1f06b8da732e20"
+  },
+  {
+    "old_path": "seed_sample.sql",
+    "new_path": "database/legacy/seed_sample.sql",
+    "before_edit_sha256": "acb18438872e14d3acea1c692ab73b6573367ef00cc76f0f3efb485873e69198"
+  },
+  {
+    "old_path": "test_admissions.py",
+    "new_path": "tests/test_admissions.py",
+    "before_edit_sha256": "26ae2c41682bfc1be226e01ee1d9579a0af236f136f2eb7a69ffa7906b717dd6"
+  },
+  {
+    "old_path": "test_input_validation.py",
+    "new_path": "tests/test_input_validation.py",
+    "before_edit_sha256": "fbbfa59ebd7840b3cdc27cad08d09e7b9c61abb2d78d6d7ceb465cd253f6d551"
+  },
+  {
+    "old_path": "compare_choices.py",
+    "new_path": "tests/choice_cases.py",
+    "before_edit_sha256": "19b85d627de9e51360fb46cdb40f1facc60dbb6d0fb1db6d757f7adf7c58a294"
+  },
+  {
+    "old_path": "benchmark_admissions.py",
+    "new_path": "tools/legacy/benchmark_admissions.py",
+    "before_edit_sha256": "9aec244b97c33111f818380b4d6b978afb14c0cc8c1683051c6f5083f71da181"
+  },
+  {
+    "old_path": "benchmark_scale_candidate_queries.py",
+    "new_path": "tools/legacy/benchmark_scale_candidate_queries.py",
+    "before_edit_sha256": "2313bb37bd39965cfac449d07bd9032497c804cbb376165ac75ea0669d9339a3"
+  },
+  {
+    "old_path": "db_check.py",
+    "new_path": "tools/legacy/db_check.py",
+    "before_edit_sha256": "37dfe1c5a345f038fe8b10bd8d32bf1ce7356e412e73f14652ab999232c7d291"
+  },
+  {
+    "old_path": "import_scale_data.py",
+    "new_path": "tools/legacy/import_scale_data.py",
+    "before_edit_sha256": "385905b3fdee4769d3368e387dbcc98a8f6f3021e2a319e72999668c4616e509"
+  },
+  {
+    "old_path": "query_candidate.py",
+    "new_path": "tools/legacy/query_candidate.py",
+    "before_edit_sha256": "531656cda94f3256bd44febec4ca91d3a3096b67dfcb9f9ef8772092b1069aab"
+  },
+  {
+    "old_path": "report_admission_run.py",
+    "new_path": "tools/legacy/report_admission_run.py",
+    "before_edit_sha256": "367f8b3aeebe0eb31c30a9bdd171d339ef17b141c9347d87aaad7341d212e315"
+  },
+  {
+    "old_path": "run_scale_admissions.py",
+    "new_path": "tools/legacy/run_scale_admissions.py",
+    "before_edit_sha256": "511541768dd1c0232aeb2ce9239d778668de2cbb141539ccfda63281d92b5fe1"
+  },
+  {
+    "old_path": "save_admission_run.py",
+    "new_path": "tools/legacy/save_admission_run.py",
+    "before_edit_sha256": "4eab8bec5a419e693672f7e34232e9c6e9129c9996341313c564530f187a4e84"
+  },
+  {
+    "old_path": "save_scale_run.py",
+    "new_path": "tools/legacy/save_scale_run.py",
+    "before_edit_sha256": "2c1830279574bdf6b400b8590d9a560f472c39df533881f7a58f71c515d6e190"
+  },
+  {
+    "old_path": "probe_scale_json.py",
+    "new_path": "tools/diagnostics/probe_scale_json.py",
+    "before_edit_sha256": "eba00c9435a391c16dac0feab81dc6e6e30d4d869ef0e8cf8a169312a9cbb840"
+  },
+  {
+    "old_path": "probe_scale_payload.py",
+    "new_path": "tools/diagnostics/probe_scale_payload.py",
+    "before_edit_sha256": "ea2f94c539d67e7511c77f95b9090db3fe2698871c1db7a6bf3dc5cc3ef312fe"
+  },
+  {
+    "old_path": "probe_scale_write_rollback.py",
+    "new_path": "tools/diagnostics/probe_scale_write_rollback.py",
+    "before_edit_sha256": "3cd1bfc6154a55b58afce325cb5d36f38bd8a40e07e9e13cd8d0965ac1ba010b"
+  },
+  {
+    "old_path": "templates",
+    "new_path": "admissions_app/templates",
+    "before_edit_sha256": null
+  },
+  {
+    "old_path": "static",
+    "new_path": "admissions_app/static",
+    "before_edit_sha256": null
+  },
+  {
+    "old_path": "软件系统开发实践课程设计任务书(1).docx",
+    "new_path": "docs/teacher/软件系统开发实践课程设计任务书(1).docx",
+    "before_edit_sha256": "dde9aa4cdc87dce1c2b9ac1a2ca92438bf10b18f36975f26dca2b5bd2717a419"
+  },
+  {
+    "old_path": "设计讨论提示.txt",
+    "new_path": "docs/teacher/设计讨论提示.txt",
+    "before_edit_sha256": "66562ff9a2793bfe6bcaeebcaca4ef62a44b51b1875b51fce66e03ff16319952"
+  },
+  {
+    "old_path": "新对话交接提示词.md",
+    "new_path": "docs/local/新对话交接提示词.md",
+    "before_edit_sha256": "41752f9ddcc29567044a00586977cfc7fade5833a3441643534eeb9995617074"
+  },
+  {
+    "old_path": "小数据集预测试与验收.txt",
+    "new_path": "tests/fixtures/小数据集预测试与验收.txt",
+    "before_edit_sha256": "7923468eddffaf983250b7dd21209be992909059815cb2e368e48af1227ac46d"
+  }
+]

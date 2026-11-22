@@ -13,9 +13,9 @@ from uuid import UUID
 
 import mysql.connector
 
-from benchmark_admissions import encode
-from query_candidate import build_trace, read_candidate
-from save_scale_run import (
+from tools.legacy.benchmark_admissions import encode
+from tools.legacy.query_candidate import build_trace, read_candidate
+from tools.legacy.save_scale_run import (
     DATABASE, LOG_KEYS, connect, load_local, read_json, serialize, sha, write_json,
 )
 
@@ -166,7 +166,7 @@ def main():
         run_id = str(UUID(saved["run_id"]))
         cases = prepare_cases(saved)
         sources = dict(saved["provenance"]["source_sha256"])
-        for name in ("query_candidate.py", str(Path(__file__).resolve())):
+        for name in ("tools/legacy/query_candidate.py", str(Path(__file__).resolve())):
             sources[name] = sha(name)
         if any(sha(name) != digest for name, digest in sources.items()):
             raise ValueError("当前源码与实验记录不一致")

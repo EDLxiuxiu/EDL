@@ -1,0 +1,163 @@
+{
+  "status": "verified",
+  "checked_at_local": "2026-11-22T17:48:32",
+  "baseline_git_head": "1424f2df8fa2743bfaa745a9543970d6f0cff915",
+  "unit_tests": {
+    "discovered": 36,
+    "passed": 34,
+    "skipped": 2,
+    "failed": 0,
+    "command": ".venv/Scripts/python.exe -B -m unittest discover -v",
+    "skip_reason": "Real MySQL fault tests require opt-in; not rerun for directory changes."
+  },
+  "actual_bat_started_from": "C:/Users/24087/Desktop",
+  "browser_open_observed": "Homepage and CSS/JS requested immediately after readiness health check.",
+  "database_writes": false,
+  "new_database_created": false,
+  "password_recorded": false,
+  "python_files_syntax_checked": 37,
+  "moved_modules_imported": [
+    "admissions_app.core.first_batch",
+    "admissions_app.core.runner",
+    "admissions_app.core.second_batch",
+    "admissions_app.core.third_batch",
+    "tools.legacy.benchmark_admissions",
+    "tools.legacy.benchmark_scale_candidate_queries",
+    "tools.legacy.db_check",
+    "tools.legacy.import_scale_data",
+    "tools.legacy.query_candidate",
+    "tools.legacy.report_admission_run",
+    "tools.legacy.run_scale_admissions",
+    "tools.legacy.save_admission_run",
+    "tools.legacy.save_scale_run",
+    "tools.diagnostics.probe_scale_json",
+    "tools.diagnostics.probe_scale_payload",
+    "tools.diagnostics.probe_scale_write_rollback"
+  ],
+  "prior_experiment_files_git_clean": 48,
+  "history_comparison_method": "git diff HEAD; honors configured working-tree line-ending conversion",
+  "source_snapshot_zip_sha256": {
+    "experiments/app_mysql_query_v2/source_snapshot.zip": "7327d04eca7739ac992d00f98c7585470e0d25630264da74d80cc012ee084fed",
+    "experiments/app_mysql_query_v3/source_snapshot.zip": "e7c0c88a6640b3192323b8a43bcac5c2c1899e3b1b022e5febfd3bb5d49c1dea"
+  },
+  "original_design_reports_git_clean": true,
+  "credential_ignored_and_absent_from_public_files": true,
+  "persisted_run": {
+    "run_id": "72d861eb-9eb5-4faf-b117-6712d2764838",
+    "candidate_count": 150000,
+    "completed_batch": 4,
+    "admitted_count": 115291,
+    "remaining_seats": 4709
+  },
+  "http_checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 63
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 6619
+    },
+    {
+      "path": "/static/app.css",
+      "status": 200,
+      "bytes": 7078
+    },
+    {
+      "path": "/static/app.js",
+      "status": 200,
+      "bytes": 1027
+    },
+    {
+      "path": "/runs/72d861eb-9eb5-4faf-b117-6712d2764838?view=plans",
+      "status": 200,
+      "bytes": 102355
+    },
+    {
+      "path": "/runs/72d861eb-9eb5-4faf-b117-6712d2764838/candidates/S099797",
+      "status": 200,
+      "bytes": 3352
+    },
+    {
+      "path": "/runs/72d861eb-9eb5-4faf-b117-6712d2764838/status",
+      "status": 200,
+      "bytes": 201
+    },
+    {
+      "path": "/runs/72d861eb-9eb5-4faf-b117-6712d2764838/export/candidates?plan=3-H001",
+      "status": 200,
+      "bytes": 42426,
+      "data_rows": 425
+    },
+    {
+      "path": "/runs/72d861eb-9eb5-4faf-b117-6712d2764838/statistics.csv",
+      "status": 200,
+      "bytes": 41670,
+      "data_rows": 666
+    }
+  ],
+  "source": {
+    "git_head": "1424f2df8fa2743bfaa745a9543970d6f0cff915",
+    "source_sha256": {
+      "manage.py": "1b3534405de02b09fa14efd045fd5b71fe5e1bc11773af451c192efbdcb8fa63",
+      "00_启动系统.bat": "68c2f8cbadb1309ea1f4f29e3ff3041d704e1c55ba0cc38cd944f443e390a879",
+      "database/schema_app.sql": "606a4d664d880744a45cf657dfe787f6d05fb12d3495d73a2e49a46886aa1f27",
+      "requirements.txt": "883e313ba429099d363ff334f45a7614ad0c5aea6cfedee36adb516d795fa04e",
+      "config/config.example.json": "bc69f4bbbb2106ffadcacbb1631f3afb09043899487ce1038358e7857fb92a58",
+      "admissions_app/__init__.py": "e5413f4e7e28b119224063a5fa24e71c2c8b2f5fd89d2becfe49cabf5c22fdb6",
+      "admissions_app/core/__init__.py": "c36a71943ee9657046e100b3617eda36d570349bda25a5cc6b32673eb6e1d712",
+      "admissions_app/core/first_batch.py": "1bebdf284043d05c36e71ca9ac6ba8ce014aebb6994e7229a6287998afee777e",
+      "admissions_app/core/runner.py": "543861f7689406a5710024a07cdf3cf2a14d94392b011805bb76fdfa34f4741b",
+      "admissions_app/core/second_batch.py": "185c2e6e5b0730e63543ac4589d45c3c19b713f915f7e40213630f04b2d01002",
+      "admissions_app/core/third_batch.py": "ea3caa16bcb5986366025d539614f47055a78b21605b89536122eebf29d8b4fc",
+      "admissions_app/datasets.py": "dc4208e0694155aa43adbf66ad99e54f71f671b384bc57ba447592d25e847dde",
+      "admissions_app/domain.py": "e621d36ba110c820f3b78cfca0311adb272689bb60f94d4660cc92177d8ba5f8",
+      "admissions_app/experiments.py": "e82ea37f1ae642aa607b1ee63026184e13e904a86b5a888a08f9d843f472e327",
+      "admissions_app/launcher.py": "e294ecb8e21e1809442198152a27c48bcd0609cd93914fa1a508fe1a49f538f0",
+      "admissions_app/repository.py": "58c6051158aecae85c6b1767feb0969d610f9cc8e16c5d8f8534696980b24949",
+      "admissions_app/service.py": "e0d0f441ceb72ee0287bb344d54bade917e7b7a2fa03f3e2b7e490b3ca12da08",
+      "admissions_app/web.py": "fec130a81d07c9a581ecaaefd22ec14a9f19fdf481c27ea9bca29cab313fc767",
+      "admissions_app/templates/base.html": "af4998135a54bfb060fdb985e92408d666c22058d736835e16d2c0d50b1d1531",
+      "admissions_app/templates/candidate.html": "4e48d75daa5fbf4c26ad9d602938762a0b6ed04b822367afa9b2e85e88b45002",
+      "admissions_app/templates/dataset.html": "3fe07a3eccd1dc14814a6863ac14f4cb61740ff50d848f4019c5bf603421d9e3",
+      "admissions_app/templates/error.html": "002deaf91a858326379db336f1783f877e582dfbee70eca9aa0c694f5fb3d456",
+      "admissions_app/templates/home.html": "ad5c5215d40f4672ec690b6e48e78928852d29d99c3e51ae79672ac91867c6bc",
+      "admissions_app/templates/run.html": "89fae94fd0cc96153548ac5599a34e2cd53423f5987235711c4b1c2a085dde78",
+      "admissions_app/templates/transfers.html": "e20dce9b14269b03239c0041c7eec818395b616c5ab809aba9731d6305b84e9b",
+      "admissions_app/static/app.css": "3b115eea56560c25f2b0adf97cc8883c5ed8160fca79948c46f707ad4158382d",
+      "admissions_app/static/app.js": "c7008362977ba09849844c789b2f957f89c607b2ae08373882cea3344b3845a3",
+      "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tests/choice_cases.py": "39001924b3aed958e2a2a7cb8700a8e6cd32bad3069f4e235b5b6166462fb208",
+      "tests/test_admissions.py": "67dd586c5aa7dfe2dccab5c544fc2d30d5460a8bf7f30a64b80732781946ccc8",
+      "tests/test_input_validation.py": "ec5767f15c50fda6399213c26a1420e42b2cd9565f56fb6e34c7916cfc77e51a",
+      "tests/test_launcher.py": "fa743e01b9630ea9e23b924dc153100813e19e0d883eb76b5ed18392a9f721cb",
+      "tests/test_mysql.py": "5b0c439f754b1a69ab561a8a71c1c9cbbb82371ba20c1aa77f4355e398b41aba",
+      "tests/test_system.py": "61058b3c6082439e9dfb82b11815008b9a17490ef26170b9e011666c04890db3",
+      "tools/legacy/query_candidate.py": "531656cda94f3256bd44febec4ca91d3a3096b67dfcb9f9ef8772092b1069aab",
+      "tools/legacy/report_admission_run.py": "367f8b3aeebe0eb31c30a9bdd171d339ef17b141c9347d87aaad7341d212e315"
+    },
+    "model_version": "app-v1",
+    "layout_version": "package-layout-v2",
+    "pre_layout_commit": "1424f2d",
+    "historical_experiment_commit": "30ebf707c2a7180d3ede588812458da8e4d11ff5"
+  },
+  "bat_repeat_invocation": "Reused existing MySQL server and opened browser; exit code 0.",
+  "mapped_paths_verified": 32,
+  "algorithm_and_generator_ast_unchanged_except_imports": [
+    "admissions_app/core/first_batch.py",
+    "admissions_app/core/second_batch.py",
+    "admissions_app/core/third_batch.py",
+    "admissions_app/core/runner.py",
+    "admissions_app/datasets.py"
+  ],
+  "root_visible_files": [
+    "00_使用说明.md",
+    "00_启动系统.bat",
+    "manage.py",
+    "README.md",
+    "requirements.txt"
+  ],
+  "navigation_links_verified": true
+}

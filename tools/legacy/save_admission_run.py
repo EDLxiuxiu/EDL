@@ -4,13 +4,13 @@ from uuid import uuid4
 
 import mysql.connector
 
-from run_admissions import (
+from admissions_app.core.runner import (
     CHOICE_LIMITS,
     check_balances,
     read_admission_inputs,
     run_all_batches,
 )
-from second_batch import CITY_CUTOFF, GRADIENT_LINES
+from admissions_app.core.second_batch import CITY_CUTOFF, GRADIENT_LINES
 
 
 def write_run(cursor, run_id, candidates, plans, ranks, result):

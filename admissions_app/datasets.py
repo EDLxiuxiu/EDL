@@ -8,8 +8,8 @@ from collections import Counter
 from pathlib import Path
 from time import perf_counter
 
-from run_admissions import CHOICE_LIMITS, validate_inputs
-from second_batch import CITY_CUTOFF, GRADIENT_LINES
+from admissions_app.core.runner import CHOICE_LIMITS, validate_inputs
+from admissions_app.core.second_batch import CITY_CUTOFF, GRADIENT_LINES
 
 VERSION = "scale-v1"
 

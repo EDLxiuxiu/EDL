@@ -1,10 +1,10 @@
 import argparse
 from getpass import getpass
 
-from admission import ranks as first_batch_ranks
-from admission import run_first_batch
-from second_batch import CITY_CUTOFF, run_second_batch
-from third_batch import PLANS, build_candidates, run_general_batch
+from admissions_app.core.first_batch import ranks as first_batch_ranks
+from admissions_app.core.first_batch import run_first_batch
+from admissions_app.core.second_batch import CITY_CUTOFF, run_second_batch
+from admissions_app.core.third_batch import PLANS, build_candidates, run_general_batch
 
 
 CHOICE_LIMITS = {1: 1, 2: 3, 3: 6, 4: 6}

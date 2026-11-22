@@ -10,18 +10,20 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def provenance():
-    names = [ROOT / name for name in ("admission.py", "second_batch.py", "third_batch.py", "run_admissions.py", "manage.py")]
-    names += sorted((ROOT / "admissions_app").glob("*.py"))
-    names += [ROOT / name for name in ("schema_app.sql", "requirements.txt", "config.example.json")]
-    for directory, pattern in (("templates", "*.html"), ("static", "*"), ("tests", "*.py")):
+    names = [ROOT / name for name in ("manage.py", "00_启动系统.bat", "database/schema_app.sql", "requirements.txt", "config/config.example.json")]
+    names += sorted((ROOT / "admissions_app").rglob("*.py"))
+    for directory, pattern in (("admissions_app/templates", "*.html"), ("admissions_app/static", "*"), ("tests", "*.py")):
         names += sorted((ROOT / directory).glob(pattern))
+    names += [ROOT / "tools/legacy" / name for name in ("query_candidate.py", "report_admission_run.py")]
     try:
         head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL).strip()
     except (OSError, subprocess.CalledProcessError):
         head = "未提供 Git 元数据"
     return {"git_head": head, "source_sha256": {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
                                                 for p in names if p.exists()},
-            "model_version": "app-v1", "historical_experiment_commit": "30ebf707c2a7180d3ede588812458da8e4d11ff5"}
+            "model_version": "app-v1", "layout_version": "package-layout-v2",
+            "pre_layout_commit": "1424f2d",
+            "historical_experiment_commit": "30ebf707c2a7180d3ede588812458da8e4d11ff5"}
 
 
 class Service:

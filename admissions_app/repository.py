@@ -20,7 +20,7 @@ CANDIDATE_FIELDS = ("candidate_no", "name", "junior_code", "score", "tie_no", "a
 
 def connection_settings():
     settings = {"host": "127.0.0.1", "port": 3306, "user": "admission_app", "database": "admissionsim_app"}
-    path = Path(__file__).resolve().parent.parent / "config.local.json"
+    path = Path(__file__).resolve().parent.parent / "config" / "config.local.json"
     if path.exists():
         supplied = json.loads(path.read_text(encoding="utf-8-sig"))
         if not isinstance(supplied, dict) or set(supplied) - settings.keys():

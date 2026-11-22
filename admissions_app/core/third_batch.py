@@ -1,7 +1,7 @@
-from admission import ranks as first_batch_ranks
-from admission import run_first_batch
-from second_batch import CITY_CUTOFF, GRADIENT_LINES, run_second_batch
-from second_batch import SAMPLE_PLANS as EARLY_PLANS
+from admissions_app.core.first_batch import ranks as first_batch_ranks
+from admissions_app.core.first_batch import run_first_batch
+from admissions_app.core.second_batch import CITY_CUTOFF, GRADIENT_LINES, run_second_batch
+from admissions_app.core.second_batch import SAMPLE_PLANS as EARLY_PLANS
 
 
 # 考生号、初中、总分、同分序号、第一批至第四批志愿。

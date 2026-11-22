@@ -1,5 +1,9 @@
 /password.txt
 /config.local.json
+/config/password.txt
+/config/config.local.json
+/docs/teacher/
+/docs/local/
 /legacy-*.zip
 /docs/.render/
 .venv/
