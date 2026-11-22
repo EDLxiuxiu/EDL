@@ -1,0 +1,2669 @@
+{
+  "mode": "real_mysql_diagnosis",
+  "run_id": "72d861eb-9eb5-4faf-b117-6712d2764838",
+  "queries": {
+    "scores": {
+      "sql": "SELECT FLOOR(score/50)*50 AS lower_score,COUNT(*) AS candidate_count,SUM(admitted_batch IS NOT NULL) AS admitted_count FROM app_candidate_results WHERE run_id=%s GROUP BY FLOOR(score/50)*50 ORDER BY lower_score",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "7165.82"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "grouping_operation": {
+              "using_temporary_table": true,
+              "using_filesort": true,
+              "table": {
+                "table_name": "app_candidate_results",
+                "access_type": "ref",
+                "possible_keys": [
+                  "PRIMARY",
+                  "uq_actual_order",
+                  "ix_candidate_junior",
+                  "ix_candidate_senior",
+                  "ix_candidate_batch"
+                ],
+                "key": "PRIMARY",
+                "used_key_parts": [
+                  "run_id"
+                ],
+                "key_length": "144",
+                "ref": [
+                  "const"
+                ],
+                "rows_examined_per_scan": 70920,
+                "rows_produced_per_join": 70920,
+                "filtered": "100.00",
+                "cost_info": {
+                  "read_cost": "73.82",
+                  "eval_cost": "7092.00",
+                  "prefix_cost": "7165.82",
+                  "data_read_per_join": "80M"
+                },
+                "used_columns": [
+                  "run_id",
+                  "candidate_no",
+                  "score",
+                  "admitted_batch"
+                ],
+                "attached_condition": "(`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838')"
+              }
+            }
+          }
+        }
+      },
+      "rows": 10,
+      "client_seconds": 2.405360799981281,
+      "result": [
+        {
+          "lower_score": 350,
+          "candidate_count": 14,
+          "admitted_count": 0.0
+        },
+        {
+          "lower_score": 400,
+          "candidate_count": 188,
+          "admitted_count": 0.0
+        },
+        {
+          "lower_score": 450,
+          "candidate_count": 1469,
+          "admitted_count": 0.0
+        },
+        {
+          "lower_score": 500,
+          "candidate_count": 7049,
+          "admitted_count": 0.0
+        },
+        {
+          "lower_score": 550,
+          "candidate_count": 20592,
+          "admitted_count": 0.0
+        },
+        {
+          "lower_score": 600,
+          "candidate_count": 37128,
+          "admitted_count": 33132.0
+        },
+        {
+          "lower_score": 650,
+          "candidate_count": 40822,
+          "admitted_count": 39735.0
+        },
+        {
+          "lower_score": 700,
+          "candidate_count": 27674,
+          "admitted_count": 27438.0
+        },
+        {
+          "lower_score": 750,
+          "candidate_count": 11590,
+          "admitted_count": 11529.0
+        },
+        {
+          "lower_score": 800,
+          "candidate_count": 3474,
+          "admitted_count": 3457.0
+        }
+      ]
+    },
+    "juniors": {
+      "sql": "SELECT junior_code,COUNT(*) AS candidate_count,SUM(admitted_batch IS NOT NULL) AS admitted_count FROM app_candidate_results WHERE run_id=%s GROUP BY junior_code ORDER BY junior_code",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "7154.84"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "grouping_operation": {
+              "using_filesort": false,
+              "table": {
+                "table_name": "app_candidate_results",
+                "access_type": "ref",
+                "possible_keys": [
+                  "PRIMARY",
+                  "uq_actual_order",
+                  "ix_candidate_junior",
+                  "ix_candidate_senior",
+                  "ix_candidate_batch"
+                ],
+                "key": "ix_candidate_junior",
+                "used_key_parts": [
+                  "run_id"
+                ],
+                "key_length": "144",
+                "ref": [
+                  "const"
+                ],
+                "rows_examined_per_scan": 70920,
+                "rows_produced_per_join": 70920,
+                "filtered": "100.00",
+                "index_condition": "(`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838')",
+                "cost_info": {
+                  "read_cost": "62.84",
+                  "eval_cost": "7092.00",
+                  "prefix_cost": "7154.84",
+                  "data_read_per_join": "80M"
+                },
+                "used_columns": [
+                  "run_id",
+                  "candidate_no",
+                  "junior_code",
+                  "admitted_batch"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "rows": 500,
+      "client_seconds": 30.377777500019874,
+      "result": [
+        {
+          "junior_code": "J001",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J002",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J003",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J004",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J005",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J006",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J007",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J008",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J009",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J010",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J011",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J012",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J013",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J014",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J015",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J016",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J017",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J018",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J019",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J020",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J021",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J022",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J023",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J024",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J025",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J026",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J027",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J028",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J029",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J030",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J031",
+          "candidate_count": 300,
+          "admitted_count": 218.0
+        },
+        {
+          "junior_code": "J032",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J033",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J034",
+          "candidate_count": 300,
+          "admitted_count": 249.0
+        },
+        {
+          "junior_code": "J035",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J036",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J037",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J038",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J039",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J040",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J041",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J042",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J043",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J044",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J045",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J046",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J047",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J048",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J049",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J050",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J051",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J052",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J053",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J054",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J055",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J056",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J057",
+          "candidate_count": 300,
+          "admitted_count": 212.0
+        },
+        {
+          "junior_code": "J058",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J059",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J060",
+          "candidate_count": 300,
+          "admitted_count": 213.0
+        },
+        {
+          "junior_code": "J061",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J062",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J063",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J064",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J065",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J066",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J067",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J068",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J069",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J070",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J071",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J072",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J073",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J074",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J075",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J076",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J077",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J078",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J079",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J080",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J081",
+          "candidate_count": 300,
+          "admitted_count": 242.0
+        },
+        {
+          "junior_code": "J082",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J083",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J084",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J085",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J086",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J087",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J088",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J089",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J090",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J091",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J092",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J093",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J094",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J095",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J096",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J097",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J098",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J099",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J100",
+          "candidate_count": 300,
+          "admitted_count": 245.0
+        },
+        {
+          "junior_code": "J101",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J102",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J103",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J104",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J105",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J106",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J107",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J108",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J109",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J110",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J111",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J112",
+          "candidate_count": 300,
+          "admitted_count": 218.0
+        },
+        {
+          "junior_code": "J113",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J114",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J115",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J116",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J117",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J118",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J119",
+          "candidate_count": 300,
+          "admitted_count": 245.0
+        },
+        {
+          "junior_code": "J120",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J121",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J122",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J123",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J124",
+          "candidate_count": 300,
+          "admitted_count": 218.0
+        },
+        {
+          "junior_code": "J125",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J126",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J127",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J128",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J129",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J130",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J131",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J132",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J133",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J134",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J135",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J136",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J137",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J138",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J139",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J140",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J141",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J142",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J143",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J144",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J145",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J146",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J147",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J148",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J149",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J150",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J151",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J152",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J153",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J154",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J155",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J156",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J157",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J158",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J159",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J160",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J161",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J162",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J163",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J164",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J165",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J166",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J167",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J168",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J169",
+          "candidate_count": 300,
+          "admitted_count": 215.0
+        },
+        {
+          "junior_code": "J170",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J171",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J172",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J173",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J174",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J175",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J176",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J177",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J178",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J179",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J180",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J181",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J182",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J183",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J184",
+          "candidate_count": 300,
+          "admitted_count": 215.0
+        },
+        {
+          "junior_code": "J185",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J186",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J187",
+          "candidate_count": 300,
+          "admitted_count": 242.0
+        },
+        {
+          "junior_code": "J188",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J189",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J190",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J191",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J192",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J193",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J194",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J195",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J196",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J197",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J198",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J199",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J200",
+          "candidate_count": 300,
+          "admitted_count": 246.0
+        },
+        {
+          "junior_code": "J201",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J202",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J203",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J204",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J205",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J206",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J207",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J208",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J209",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J210",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J211",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J212",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J213",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J214",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J215",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J216",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J217",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J218",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J219",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J220",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J221",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J222",
+          "candidate_count": 300,
+          "admitted_count": 242.0
+        },
+        {
+          "junior_code": "J223",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J224",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J225",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J226",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J227",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J228",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J229",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J230",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J231",
+          "candidate_count": 300,
+          "admitted_count": 218.0
+        },
+        {
+          "junior_code": "J232",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J233",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J234",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J235",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J236",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J237",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J238",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J239",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J240",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J241",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J242",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J243",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J244",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J245",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J246",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J247",
+          "candidate_count": 300,
+          "admitted_count": 246.0
+        },
+        {
+          "junior_code": "J248",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J249",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J250",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J251",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J252",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J253",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J254",
+          "candidate_count": 300,
+          "admitted_count": 242.0
+        },
+        {
+          "junior_code": "J255",
+          "candidate_count": 300,
+          "admitted_count": 242.0
+        },
+        {
+          "junior_code": "J256",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J257",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J258",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J259",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J260",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J261",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J262",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J263",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J264",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J265",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J266",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J267",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J268",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J269",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J270",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J271",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J272",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J273",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J274",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J275",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J276",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J277",
+          "candidate_count": 300,
+          "admitted_count": 209.0
+        },
+        {
+          "junior_code": "J278",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J279",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J280",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J281",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J282",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J283",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J284",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J285",
+          "candidate_count": 300,
+          "admitted_count": 219.0
+        },
+        {
+          "junior_code": "J286",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J287",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J288",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J289",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J290",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J291",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J292",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J293",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J294",
+          "candidate_count": 300,
+          "admitted_count": 242.0
+        },
+        {
+          "junior_code": "J295",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J296",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J297",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J298",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J299",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J300",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J301",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J302",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J303",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J304",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J305",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J306",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J307",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J308",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J309",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J310",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J311",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J312",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J313",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J314",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J315",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J316",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J317",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J318",
+          "candidate_count": 300,
+          "admitted_count": 212.0
+        },
+        {
+          "junior_code": "J319",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J320",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J321",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J322",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J323",
+          "candidate_count": 300,
+          "admitted_count": 216.0
+        },
+        {
+          "junior_code": "J324",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J325",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J326",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J327",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J328",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J329",
+          "candidate_count": 300,
+          "admitted_count": 209.0
+        },
+        {
+          "junior_code": "J330",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J331",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J332",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J333",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J334",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J335",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J336",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J337",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J338",
+          "candidate_count": 300,
+          "admitted_count": 250.0
+        },
+        {
+          "junior_code": "J339",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J340",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J341",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J342",
+          "candidate_count": 300,
+          "admitted_count": 237.0
+        },
+        {
+          "junior_code": "J343",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J344",
+          "candidate_count": 300,
+          "admitted_count": 215.0
+        },
+        {
+          "junior_code": "J345",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J346",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J347",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J348",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J349",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J350",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J351",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J352",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J353",
+          "candidate_count": 300,
+          "admitted_count": 215.0
+        },
+        {
+          "junior_code": "J354",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J355",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J356",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J357",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J358",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J359",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J360",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J361",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J362",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J363",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J364",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J365",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J366",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J367",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J368",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J369",
+          "candidate_count": 300,
+          "admitted_count": 246.0
+        },
+        {
+          "junior_code": "J370",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J371",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J372",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J373",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J374",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J375",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J376",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J377",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J378",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J379",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J380",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J381",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J382",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J383",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J384",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J385",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J386",
+          "candidate_count": 300,
+          "admitted_count": 248.0
+        },
+        {
+          "junior_code": "J387",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J388",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J389",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J390",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J391",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J392",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J393",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J394",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J395",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J396",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J397",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J398",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J399",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J400",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J401",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J402",
+          "candidate_count": 300,
+          "admitted_count": 240.0
+        },
+        {
+          "junior_code": "J403",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J404",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J405",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J406",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J407",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J408",
+          "candidate_count": 300,
+          "admitted_count": 242.0
+        },
+        {
+          "junior_code": "J409",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J410",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J411",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J412",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J413",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J414",
+          "candidate_count": 300,
+          "admitted_count": 248.0
+        },
+        {
+          "junior_code": "J415",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J416",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J417",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J418",
+          "candidate_count": 300,
+          "admitted_count": 209.0
+        },
+        {
+          "junior_code": "J419",
+          "candidate_count": 300,
+          "admitted_count": 210.0
+        },
+        {
+          "junior_code": "J420",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J421",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J422",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J423",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J424",
+          "candidate_count": 300,
+          "admitted_count": 243.0
+        },
+        {
+          "junior_code": "J425",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J426",
+          "candidate_count": 300,
+          "admitted_count": 241.0
+        },
+        {
+          "junior_code": "J427",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J428",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J429",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J430",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J431",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J432",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J433",
+          "candidate_count": 300,
+          "admitted_count": 234.0
+        },
+        {
+          "junior_code": "J434",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J435",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J436",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J437",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J438",
+          "candidate_count": 300,
+          "admitted_count": 217.0
+        },
+        {
+          "junior_code": "J439",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J440",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J441",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J442",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J443",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J444",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J445",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J446",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J447",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J448",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J449",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J450",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J451",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J452",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J453",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J454",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J455",
+          "candidate_count": 300,
+          "admitted_count": 230.0
+        },
+        {
+          "junior_code": "J456",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J457",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J458",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J459",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J460",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J461",
+          "candidate_count": 300,
+          "admitted_count": 235.0
+        },
+        {
+          "junior_code": "J462",
+          "candidate_count": 300,
+          "admitted_count": 221.0
+        },
+        {
+          "junior_code": "J463",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J464",
+          "candidate_count": 300,
+          "admitted_count": 244.0
+        },
+        {
+          "junior_code": "J465",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J466",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J467",
+          "candidate_count": 300,
+          "admitted_count": 236.0
+        },
+        {
+          "junior_code": "J468",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J469",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J470",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J471",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J472",
+          "candidate_count": 300,
+          "admitted_count": 231.0
+        },
+        {
+          "junior_code": "J473",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J474",
+          "candidate_count": 300,
+          "admitted_count": 225.0
+        },
+        {
+          "junior_code": "J475",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J476",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J477",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J478",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J479",
+          "candidate_count": 300,
+          "admitted_count": 224.0
+        },
+        {
+          "junior_code": "J480",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J481",
+          "candidate_count": 300,
+          "admitted_count": 239.0
+        },
+        {
+          "junior_code": "J482",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J483",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J484",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J485",
+          "candidate_count": 300,
+          "admitted_count": 216.0
+        },
+        {
+          "junior_code": "J486",
+          "candidate_count": 300,
+          "admitted_count": 232.0
+        },
+        {
+          "junior_code": "J487",
+          "candidate_count": 300,
+          "admitted_count": 228.0
+        },
+        {
+          "junior_code": "J488",
+          "candidate_count": 300,
+          "admitted_count": 238.0
+        },
+        {
+          "junior_code": "J489",
+          "candidate_count": 300,
+          "admitted_count": 220.0
+        },
+        {
+          "junior_code": "J490",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J491",
+          "candidate_count": 300,
+          "admitted_count": 222.0
+        },
+        {
+          "junior_code": "J492",
+          "candidate_count": 300,
+          "admitted_count": 223.0
+        },
+        {
+          "junior_code": "J493",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        },
+        {
+          "junior_code": "J494",
+          "candidate_count": 300,
+          "admitted_count": 218.0
+        },
+        {
+          "junior_code": "J495",
+          "candidate_count": 300,
+          "admitted_count": 252.0
+        },
+        {
+          "junior_code": "J496",
+          "candidate_count": 300,
+          "admitted_count": 227.0
+        },
+        {
+          "junior_code": "J497",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J498",
+          "candidate_count": 300,
+          "admitted_count": 233.0
+        },
+        {
+          "junior_code": "J499",
+          "candidate_count": 300,
+          "admitted_count": 226.0
+        },
+        {
+          "junior_code": "J500",
+          "candidate_count": 300,
+          "admitted_count": 229.0
+        }
+      ]
+    }
+  }
+}

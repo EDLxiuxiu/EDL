@@ -1,0 +1,14 @@
+{
+  "status": "failed_before_fix",
+  "date_local": "2026-11-22",
+  "mode": "flask_test_client_with_real_mysql",
+  "database": "admissionsim_app",
+  "run_id": "72d861eb-9eb5-4faf-b117-6712d2764838",
+  "phase": "run_page_score_distribution_query",
+  "errno": 1055,
+  "sql_mode": "ONLY_FULL_GROUP_BY",
+  "cause": "SELECT 使用 FLOOR(score/50)*50，但 GROUP BY 原先只写 FLOOR(score/50)，MySQL 严格模式不接受该非聚合表达式。",
+  "fix": "GROUP BY 改为与 SELECT 完全相同的 FLOOR(score/50)*50，保留严格 SQL 模式，补充真实 MySQL 页面及 CSV 联通测试。",
+  "query_comparison_affected": false,
+  "notes": "此缺陷位于页面分数分布查询，不在已完成的全计划或考生点查基准 SQL 中；不改写已验收性能报告。"
+}

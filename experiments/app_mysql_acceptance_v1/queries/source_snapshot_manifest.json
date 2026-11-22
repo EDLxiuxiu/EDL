@@ -1,0 +1,33 @@
+{
+  "status": "verified",
+  "reference_report": "query_comparison.json",
+  "source_sha256": {
+    "admission.py": "1bebdf284043d05c36e71ca9ac6ba8ce014aebb6994e7229a6287998afee777e",
+    "second_batch.py": "d7bd11667b75d9fcd0d8225c80bb871c054308d9e36957f805fc6563bc8aec3d",
+    "third_batch.py": "003bb1e95051a1f9257e638aaa90d1a82ec557d8441ff06d9179d2abd08c1044",
+    "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+    "manage.py": "7b6b53ca7e90ccc43fefd098cb4fb8a3af4efa097b8e865c793be106610908d5",
+    "admissions_app/__init__.py": "e5413f4e7e28b119224063a5fa24e71c2c8b2f5fd89d2becfe49cabf5c22fdb6",
+    "admissions_app/domain.py": "4e9fc6efb0c57f260708c839dc5ec1e9a82477d5d549838f56d5bb9c870d6b5d",
+    "admissions_app/experiments.py": "331b62762f5cb69a343a93cd2dae5f7310fccb0e6783c74113ca5d5bc6890152",
+    "admissions_app/repository.py": "c311b77410b3aacc4abbfbafeca8746b0d1078963e2493916fff7dbdb6f2b415",
+    "admissions_app/service.py": "389c556b9c43fa828e3fb8ba45585613c5f5a7ff5a0de427b6994c777047c455",
+    "admissions_app/web.py": "7a3a060c48864f10351cb5e24d1f757e2fdf15cdcf6d01a4039f1dd8d3e889ec",
+    "schema_app.sql": "e0ec93e1ab7e1d09a1e01633fe134f38d2cdf37cc09d578c2ee062ff79801b61",
+    "requirements.txt": "883e313ba429099d363ff334f45a7614ad0c5aea6cfedee36adb516d795fa04e",
+    "config.example.json": "bc69f4bbbb2106ffadcacbb1631f3afb09043899487ce1038358e7857fb92a58",
+    "templates/base.html": "af4998135a54bfb060fdb985e92408d666c22058d736835e16d2c0d50b1d1531",
+    "templates/candidate.html": "4e48d75daa5fbf4c26ad9d602938762a0b6ed04b822367afa9b2e85e88b45002",
+    "templates/dataset.html": "3fe07a3eccd1dc14814a6863ac14f4cb61740ff50d848f4019c5bf603421d9e3",
+    "templates/error.html": "002deaf91a858326379db336f1783f877e582dfbee70eca9aa0c694f5fb3d456",
+    "templates/home.html": "ad5c5215d40f4672ec690b6e48e78928852d29d99c3e51ae79672ac91867c6bc",
+    "templates/run.html": "a4a33d2ff8e225fb195aa76a8ce40f571c783702890a2bf742bb851592b36dce",
+    "templates/transfers.html": "e20dce9b14269b03239c0041c7eec818395b616c5ab809aba9731d6305b84e9b",
+    "static/app.css": "3b115eea56560c25f2b0adf97cc8883c5ed8160fca79948c46f707ad4158382d",
+    "static/app.js": "c7008362977ba09849844c789b2f957f89c607b2ae08373882cea3344b3845a3",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_system.py": "935b1aa8f5c47fb1f1a9ba2b35b0b89beabde22ca170bdecea1333a1a45c4584"
+  },
+  "file_count": 25,
+  "note": "所有归档源文件逐字节匹配原始报告 SHA；未修改原报告。只含源码，不含密码或大数据。"
+}

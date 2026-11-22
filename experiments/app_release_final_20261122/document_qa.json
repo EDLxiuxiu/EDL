@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "document": "docs/设计报告.docx",
+  "document_sha256": "28c805626ac199181679ff00990c239552f79f18b7355b67face31b95565b12d",
+  "page_count": 9,
+  "conversion": "installed Microsoft Word ExportAsFixedFormat",
+  "visual_review": "all nine rendered page PNGs inspected; no clipping, overlap or title border",
+  "canonical_renderer_limit": "LibreOffice not installed; used Word PDF conversion and bundled PDFium page rendering",
+  "rendered_intermediates_ignored_by_git": true
+}

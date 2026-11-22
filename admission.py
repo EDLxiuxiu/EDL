@@ -26,16 +26,17 @@ def run_first_batch(candidates, ranks, plans, city_cutoff):
     reasons = {}
     transfers = []
 
+    by_school = {}
+    for candidate in candidates:
+        by_school.setdefault(candidate["choice"], []).append(candidate)
+
     for plan_id in admitted:
         school = plan_id.split("-", 1)[1]
         school_ranks = ranks.get(school, {})
         cutoff = max(city_cutoff, plans[plan_id]["cutoff"])
         eligible = []
 
-        for candidate in candidates:
-            if candidate["choice"] != school:
-                continue
-
+        for candidate in by_school.get(school, []):
             candidate_id = candidate["id"]
             if candidate_id not in school_ranks:
                 reasons[candidate_id] = "无该校自主招生资格"

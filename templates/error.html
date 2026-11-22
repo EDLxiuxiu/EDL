@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block title %}操作未完成{% endblock %}{% block content %}<section class="panel"><p class="eyebrow">PLEASE CHECK</p><h1>操作未完成</h1><p role="alert">{{ message }}</p><a class="button secondary" href="{{ url_for('home') }}">返回工作台</a><p class="muted">修改数据时会先校验，再创建新版本。若保存运行时出现连接错误，请先检查已提交批次和一致性，再决定继续执行。</p></section>{% endblock %}

@@ -46,7 +46,9 @@ def build_candidates():
     return candidates
 
 
-def run_general_batch(batch, candidates, plans, previous_admitted, previous_balances):
+def run_general_batch(batch, candidates, plans, previous_admitted, previous_balances, *,
+                      city_cutoff=CITY_CUTOFF, gradient_lines=GRADIENT_LINES,
+                      choice_limit=6, ordered=None):
     balances = previous_balances.copy()
     admitted = {plan_id: [] for plan_id in plans if plan_id.startswith(f"{batch}-")}
     admitted_ids = {
@@ -54,10 +56,11 @@ def run_general_batch(batch, candidates, plans, previous_admitted, previous_bala
         for ids in previous_admitted.values()
         for candidate_id in ids
     }
-    groups = [[] for _ in GRADIENT_LINES]
+    groups = [[] for _ in gradient_lines]
     log = []
 
-    ordered = sorted(candidates, key=lambda c: (-c["score"], c["tie"]))
+    if ordered is None:
+        ordered = sorted(candidates, key=lambda c: (-c["score"], c["tie"]))
     for candidate in ordered:
         candidate_id = candidate["id"]
         if not candidate["choices"][batch]:
@@ -65,16 +68,16 @@ def run_general_batch(batch, candidates, plans, previous_admitted, previous_bala
         if candidate_id in admitted_ids:
             log.append(f"{candidate_id} 已在前批录取，跳过")
             continue
-        if candidate["score"] < CITY_CUTOFF:
+        if candidate["score"] < city_cutoff:
             log.append(f"{candidate_id} 低于全市控制线，跳过")
             continue
-        for index, line in enumerate(GRADIENT_LINES):
+        for index, line in enumerate(gradient_lines):
             if candidate["score"] >= line:
                 groups[index].append(candidate)
                 break
 
     for gradient, group in enumerate(groups, start=1):
-        for choice_index in range(6):
+        for choice_index in range(choice_limit):
             for candidate in group:
                 candidate_id = candidate["id"]
                 choices = candidate["choices"][batch]
@@ -88,7 +91,7 @@ def run_general_batch(batch, candidates, plans, previous_admitted, previous_bala
                 if plan_id not in admitted:
                     log.append(f"{prefix} 无对应计划")
                     continue
-                cutoff = plans[plan_id].get("cutoff", CITY_CUTOFF)
+                cutoff = plans[plan_id].get("cutoff", city_cutoff)
                 if candidate["score"] < cutoff:
                     log.append(f"{prefix} 低于计划控制线")
                 elif balances[plan_id] == 0:

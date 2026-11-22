@@ -1,0 +1,111 @@
+{
+  "mode": "real_mysql_diagnosis",
+  "run_id": "72d861eb-9eb5-4faf-b117-6712d2764838",
+  "queries": {
+    "scores": {
+      "sql": "SELECT FLOOR(score/50)*50 AS lower_score,COUNT(*) AS candidate_count,SUM(admitted_batch IS NOT NULL) AS admitted_count FROM app_candidate_results FORCE INDEX (ix_candidate_statistics) WHERE run_id=%s GROUP BY FLOOR(score/50)*50 ORDER BY lower_score",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "11264.70"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "grouping_operation": {
+              "using_temporary_table": true,
+              "using_filesort": true,
+              "table": {
+                "table_name": "app_candidate_results",
+                "access_type": "ref",
+                "possible_keys": [
+                  "ix_candidate_statistics"
+                ],
+                "key": "ix_candidate_statistics",
+                "used_key_parts": [
+                  "run_id"
+                ],
+                "key_length": "144",
+                "ref": [
+                  "const"
+                ],
+                "rows_examined_per_scan": 70920,
+                "rows_produced_per_join": 70920,
+                "filtered": "100.00",
+                "using_index": true,
+                "cost_info": {
+                  "read_cost": "4172.71",
+                  "eval_cost": "7092.00",
+                  "prefix_cost": "11264.71",
+                  "data_read_per_join": "80M"
+                },
+                "used_columns": [
+                  "run_id",
+                  "candidate_no",
+                  "score",
+                  "admitted_batch"
+                ],
+                "attached_condition": "(`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838')"
+              }
+            }
+          }
+        }
+      },
+      "rows": 10,
+      "client_seconds": 0.8090254999697208,
+      "result_equal_to_before": true
+    },
+    "juniors": {
+      "sql": "SELECT junior_code,COUNT(*) AS candidate_count,SUM(admitted_batch IS NOT NULL) AS admitted_count FROM app_candidate_results FORCE INDEX (ix_candidate_statistics) WHERE run_id=%s GROUP BY junior_code ORDER BY junior_code",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "11259.19"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "grouping_operation": {
+              "using_filesort": false,
+              "table": {
+                "table_name": "app_candidate_results",
+                "access_type": "ref",
+                "possible_keys": [
+                  "ix_candidate_statistics"
+                ],
+                "key": "ix_candidate_statistics",
+                "used_key_parts": [
+                  "run_id"
+                ],
+                "key_length": "144",
+                "ref": [
+                  "const"
+                ],
+                "rows_examined_per_scan": 70920,
+                "rows_produced_per_join": 70920,
+                "filtered": "100.00",
+                "using_index": true,
+                "cost_info": {
+                  "read_cost": "4167.19",
+                  "eval_cost": "7092.00",
+                  "prefix_cost": "11259.19",
+                  "data_read_per_join": "80M"
+                },
+                "used_columns": [
+                  "run_id",
+                  "candidate_no",
+                  "junior_code",
+                  "admitted_batch"
+                ],
+                "attached_condition": "(`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838')"
+              }
+            }
+          }
+        }
+      },
+      "rows": 500,
+      "client_seconds": 0.5868802000186406,
+      "result_equal_to_before": true
+    }
+  }
+}

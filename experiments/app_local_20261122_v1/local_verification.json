@@ -1,0 +1,36 @@
+{
+  "status": "verified",
+  "mode": "local_python_and_memory",
+  "mysql_connected": false,
+  "created_at": "2026-11-22T08:20:51.403161+00:00",
+  "source": {
+    "git_head": "30ebf707c2a7180d3ede588812458da8e4d11ff5",
+    "source_sha256": {
+      "admission.py": "1bebdf284043d05c36e71ca9ac6ba8ce014aebb6994e7229a6287998afee777e",
+      "second_batch.py": "d7bd11667b75d9fcd0d8225c80bb871c054308d9e36957f805fc6563bc8aec3d",
+      "third_batch.py": "003bb1e95051a1f9257e638aaa90d1a82ec557d8441ff06d9179d2abd08c1044",
+      "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+      "manage.py": "b8f853e6b979638b0bc2ba6c5885cca1651ba2b11c6ced60550941795fa87b67",
+      "admissions_app/__init__.py": "e5413f4e7e28b119224063a5fa24e71c2c8b2f5fd89d2becfe49cabf5c22fdb6",
+      "admissions_app/domain.py": "c0d37adba5f18bf5a3f0898792ed354cb47757ab619ded0050aa643a5da3572d",
+      "admissions_app/experiments.py": "331b62762f5cb69a343a93cd2dae5f7310fccb0e6783c74113ca5d5bc6890152",
+      "admissions_app/repository.py": "27aaaa383b4eb579fcc0a16caffbf5b282ad04b76284ae2e5032f098270adbec",
+      "admissions_app/service.py": "a6761296ef8a084aa79b217be6487dcf1d24a102e2432ef8fa63d163be9fb437",
+      "admissions_app/web.py": "0176f703b7fa32f52c2a387ba7b20e576c0fd7abaa85a7070a14c245bc898c6d"
+    },
+    "model_version": "app-v1",
+    "historical_experiment_commit": "30ebf707c2a7180d3ede588812458da8e4d11ff5"
+  },
+  "unittest_exit_code": 0,
+  "new_implementation_single_run_seconds": 4.1589731000131,
+  "timing_note": "新实现单次本地正确性验收，不作为 MySQL 或同口径优化收益数据",
+  "dataset_id": "scale-v1-150000-5bbab6addf0ceeeb",
+  "candidates": 150000,
+  "plans": 48250,
+  "admitted": 115291,
+  "remaining_seats": 4709,
+  "transfers": 8378,
+  "fixed_candidate_cases": 6,
+  "business_and_full_logs_equal": true,
+  "full_result_sha256": "6e670b8e715fd6110df9457a8e385d80905f2bde09a8299450778f775bc44212"
+}

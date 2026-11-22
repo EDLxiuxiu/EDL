@@ -1,0 +1,43 @@
+{
+  "status": "verified",
+  "query_count": 56,
+  "statistics_recalculated": true,
+  "current_recorded_sources_match": true,
+  "legacy_query_sources_unchanged_in_git": {
+    "query_candidate.py": "531656cda94f3256bd44febec4ca91d3a3096b67dfcb9f9ef8772092b1069aab",
+    "report_admission_run.py": "367f8b3aeebe0eb31c30a9bdd171d339ef17b141c9347d87aaad7341d212e315"
+  },
+  "source": {
+    "git_head": "30ebf707c2a7180d3ede588812458da8e4d11ff5",
+    "source_sha256": {
+      "admission.py": "1bebdf284043d05c36e71ca9ac6ba8ce014aebb6994e7229a6287998afee777e",
+      "second_batch.py": "d7bd11667b75d9fcd0d8225c80bb871c054308d9e36957f805fc6563bc8aec3d",
+      "third_batch.py": "003bb1e95051a1f9257e638aaa90d1a82ec557d8441ff06d9179d2abd08c1044",
+      "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+      "manage.py": "d31bc3f159ecf292f2c3e1938f78b2f3e1a26381bf05c937fb2a3b67082006f8",
+      "admissions_app/__init__.py": "e5413f4e7e28b119224063a5fa24e71c2c8b2f5fd89d2becfe49cabf5c22fdb6",
+      "admissions_app/domain.py": "4e9fc6efb0c57f260708c839dc5ec1e9a82477d5d549838f56d5bb9c870d6b5d",
+      "admissions_app/experiments.py": "d9660ef49a1e3f9394fc03ae9dff756ca52ca054534aba43a3e5cbccd9f9c4b5",
+      "admissions_app/repository.py": "c311b77410b3aacc4abbfbafeca8746b0d1078963e2493916fff7dbdb6f2b415",
+      "admissions_app/service.py": "389c556b9c43fa828e3fb8ba45585613c5f5a7ff5a0de427b6994c777047c455",
+      "admissions_app/web.py": "7a3a060c48864f10351cb5e24d1f757e2fdf15cdcf6d01a4039f1dd8d3e889ec",
+      "schema_app.sql": "5d844b0b7297ca71d5990139865ea4662db87bb6096c50e228d47185645cf617",
+      "requirements.txt": "883e313ba429099d363ff334f45a7614ad0c5aea6cfedee36adb516d795fa04e",
+      "config.example.json": "bc69f4bbbb2106ffadcacbb1631f3afb09043899487ce1038358e7857fb92a58",
+      "templates/base.html": "af4998135a54bfb060fdb985e92408d666c22058d736835e16d2c0d50b1d1531",
+      "templates/candidate.html": "4e48d75daa5fbf4c26ad9d602938762a0b6ed04b822367afa9b2e85e88b45002",
+      "templates/dataset.html": "3fe07a3eccd1dc14814a6863ac14f4cb61740ff50d848f4019c5bf603421d9e3",
+      "templates/error.html": "002deaf91a858326379db336f1783f877e582dfbee70eca9aa0c694f5fb3d456",
+      "templates/home.html": "ad5c5215d40f4672ec690b6e48e78928852d29d99c3e51ae79672ac91867c6bc",
+      "templates/run.html": "a4a33d2ff8e225fb195aa76a8ce40f571c783702890a2bf742bb851592b36dce",
+      "templates/transfers.html": "e20dce9b14269b03239c0041c7eec818395b616c5ab809aba9731d6305b84e9b",
+      "static/app.css": "3b115eea56560c25f2b0adf97cc8883c5ed8160fca79948c46f707ad4158382d",
+      "static/app.js": "c7008362977ba09849844c789b2f957f89c607b2ae08373882cea3344b3845a3",
+      "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tests/test_mysql.py": "b5de7cbe04d1330a6417ea51d31e16a2db0166c96e71fa2016808e1edbed2d0e",
+      "tests/test_system.py": "935b1aa8f5c47fb1f1a9ba2b35b0b89beabde22ca170bdecea1333a1a45c4584"
+    },
+    "model_version": "app-v1",
+    "historical_experiment_commit": "30ebf707c2a7180d3ede588812458da8e4d11ff5"
+  }
+}

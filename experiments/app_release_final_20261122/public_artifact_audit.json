@@ -1,0 +1,25 @@
+{
+  "status": "verified",
+  "public_file_count": 112,
+  "credential_file_excluded": true,
+  "credential_content_not_found": true,
+  "source_archives": [
+    {
+      "archive": "experiments/app_mysql_query_v3/source_snapshot.zip",
+      "file_count": 26,
+      "all_original_report_hashes_match": true
+    },
+    {
+      "archive": "experiments/app_mysql_acceptance_v1/queries/source_snapshot.zip",
+      "file_count": 25,
+      "all_original_report_hashes_match": true
+    },
+    {
+      "archive": "experiments/app_mysql_query_v2/source_snapshot.zip",
+      "file_count": 26,
+      "all_original_report_hashes_match": true
+    }
+  ],
+  "files_over_2_mib": [],
+  "git_commit_or_push_performed": false
+}

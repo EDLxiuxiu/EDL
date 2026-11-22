@@ -1,0 +1,27 @@
+{
+  "status": "verified_after_service_start",
+  "date_local": "2026-11-22",
+  "database": "admissionsim_app",
+  "initial_attempt": {
+    "status": "connection_lost_during_ddl",
+    "errno": 2055,
+    "windows_error": 10054,
+    "root_cause": "not_confirmed",
+    "ddl_partial_state": "not_captured"
+  },
+  "service_check": {
+    "service": "MySQL84",
+    "observed_state": "Stopped",
+    "assistant_start_attempt": "permission_denied",
+    "recovery": "user_manually_started_service_and_reported_running"
+  },
+  "retry": {
+    "method": "idempotent_schema_initialization_with_if_not_exists",
+    "server_version": "8.4.13",
+    "log_bin": true,
+    "application_connection_verified": true,
+    "password_changed": false,
+    "historical_databases_modified": false
+  },
+  "notes": "初次连接断开与服务停止之间的因果关系尚未确认。未修改全局参数、未关闭 binlog，未把旧故障根因套用于本次。密码未写入报告。"
+}

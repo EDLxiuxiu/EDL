@@ -34,7 +34,9 @@ SAMPLE_PLANS = {
 }
 
 
-def run_second_batch(candidates, plans, first_admitted, first_balances):
+def run_second_batch(candidates, plans, first_admitted, first_balances, *,
+                     city_cutoff=CITY_CUTOFF, gradient_lines=GRADIENT_LINES,
+                     choice_limit=CHOICE_LIMIT, ordered=None):
     balances = first_balances.copy()
     admitted = {plan_id: [] for plan_id in plans if plan_id.startswith("2-")}
     admitted_ids = {
@@ -46,24 +48,25 @@ def run_second_batch(candidates, plans, first_admitted, first_balances):
     log = []
 
     # 从高分到低分，同分时按序号从小到大。
-    ordered = sorted(candidates, key=lambda c: (-c["score"], c["tie"]))
-    groups = [[] for _ in GRADIENT_LINES]
+    if ordered is None:
+        ordered = sorted(candidates, key=lambda c: (-c["score"], c["tie"]))
+    groups = [[] for _ in gradient_lines]
 
     for candidate in ordered:
         candidate_id = candidate["id"]
         if candidate_id in admitted_ids:
             log.append(f"{candidate_id} 已在第一批录取，跳过第二批")
             continue
-        if candidate["score"] < CITY_CUTOFF:
+        if candidate["score"] < city_cutoff:
             log.append(f"{candidate_id} 低于全市控制线，跳过第二批")
             continue
-        for index, line in enumerate(GRADIENT_LINES):
+        for index, line in enumerate(gradient_lines):
             if candidate["score"] >= line:
                 groups[index].append(candidate)
                 break
 
     for gradient, group in enumerate(groups, start=1):
-        for choice_index in range(CHOICE_LIMIT):
+        for choice_index in range(choice_limit):
             for candidate in group:
                 candidate_id = candidate["id"]
                 choices = candidate["second_choices"]

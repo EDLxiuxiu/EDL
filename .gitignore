@@ -1,4 +1,7 @@
 /password.txt
+/config.local.json
+/legacy-*.zip
+/docs/.render/
 .venv/
 .idea/
 __pycache__/

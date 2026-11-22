@@ -1,0 +1,36 @@
+test_baseline (test_admissions.AdmissionTests.test_baseline) ... ok
+test_city_cutoff_599_to_600 (test_admissions.AdmissionTests.test_city_cutoff_599_to_600) ... ok
+test_first_batch_and_quota_partition (test_admissions.AdmissionTests.test_first_batch_and_quota_partition) ... ok
+test_fourth_batch_without_choices (test_admissions.AdmissionTests.test_fourth_batch_without_choices) ... ok
+test_gradient_boundary_720_to_719 (test_admissions.AdmissionTests.test_gradient_boundary_720_to_719) ... ok
+test_high_score_choice_changes (test_admissions.AdmissionTests.test_high_score_choice_changes) ... ok
+test_rerun_after_variants (test_admissions.AdmissionTests.test_rerun_after_variants) ... ok
+test_tie_order_and_lowest_score (test_admissions.AdmissionTests.test_tie_order_and_lowest_score) ... ok
+test_duplicate_candidate_id (test_input_validation.InputValidationTests.test_duplicate_candidate_id) ... ok
+test_duplicate_school_in_choices (test_input_validation.InputValidationTests.test_duplicate_school_in_choices) ... ok
+test_duplicate_tie_for_same_score (test_input_validation.InputValidationTests.test_duplicate_tie_for_same_score) ... ok
+test_negative_score (test_input_validation.InputValidationTests.test_negative_score) ... ok
+test_school_with_no_plan_in_batch (test_input_validation.InputValidationTests.test_school_with_no_plan_in_batch) ... ok
+test_atomic_rollback_resume_and_stale_writer (tests.test_mysql.MySQLIntegrationTests.test_atomic_rollback_resume_and_stale_writer) ... skipped '真实 MySQL 测试须显式指定已授权的本机凭据文件'
+test_batch_resume_and_no_duplicate_transfer (tests.test_system.DomainTests.test_batch_resume_and_no_duplicate_transfer) ... ok
+test_candidate_number_can_equal_gradient_label (tests.test_system.DomainTests.test_candidate_number_can_equal_gradient_label) ... ok
+test_checkpoint_codec_and_null_empty_plan (tests.test_system.DomainTests.test_checkpoint_codec_and_null_empty_plan) ... ok
+test_dataset_validation_references_and_rank (tests.test_system.DomainTests.test_dataset_validation_references_and_rank) ... ok
+test_full_legacy_equivalence_and_last_candidate (tests.test_system.DomainTests.test_full_legacy_equivalence_and_last_candidate) ... ok
+test_parameters_and_default_independence (tests.test_system.DomainTests.test_parameters_and_default_independence) ... ok
+test_two_independent_choice_variants (tests.test_system.DomainTests.test_two_independent_choice_variants) ... ok
+test_drift_detected_and_historical_write_guard (tests.test_system.ServiceTests.test_drift_detected_and_historical_write_guard) ... ok
+test_immutable_input_and_filtering (tests.test_system.ServiceTests.test_immutable_input_and_filtering) ... ok
+test_save_failure_keeps_checkpoint (tests.test_system.ServiceTests.test_save_failure_keeps_checkpoint) ... ok
+test_save_resume_and_stale_writer (tests.test_system.ServiceTests.test_save_resume_and_stale_writer) ... ok
+test_transaction_rollback_contract (tests.test_system.ServiceTests.test_transaction_rollback_contract) ... ok
+test_all_pages_and_trace (tests.test_system.WebTests.test_all_pages_and_trace) ... ok
+test_csrf_and_rule_validation (tests.test_system.WebTests.test_csrf_and_rule_validation) ... ok
+test_csv_filter_and_formula_escaping (tests.test_system.WebTests.test_csv_filter_and_formula_escaping) ... ok
+test_independent_presets_and_candidate_edit (tests.test_system.WebTests.test_independent_presets_and_candidate_edit) ... ok
+test_status_and_audit (tests.test_system.WebTests.test_status_and_audit) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.357s
+
+OK (skipped=1)

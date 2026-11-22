@@ -1,0 +1,62 @@
+{
+  "status": "verified",
+  "source": {
+    "git_head": "30ebf707c2a7180d3ede588812458da8e4d11ff5",
+    "source_sha256": {
+      "admission.py": "1bebdf284043d05c36e71ca9ac6ba8ce014aebb6994e7229a6287998afee777e",
+      "second_batch.py": "d7bd11667b75d9fcd0d8225c80bb871c054308d9e36957f805fc6563bc8aec3d",
+      "third_batch.py": "003bb1e95051a1f9257e638aaa90d1a82ec557d8441ff06d9179d2abd08c1044",
+      "run_admissions.py": "47c4f51627c60b848b26ca4d1f537fedb0752c4e83374ca5c8b3fe7a6c07a799",
+      "manage.py": "8c6a6db97cec781c08ad3543617d9798dacc9c37dae0f2743814caf6c73c668d",
+      "admissions_app/__init__.py": "e5413f4e7e28b119224063a5fa24e71c2c8b2f5fd89d2becfe49cabf5c22fdb6",
+      "admissions_app/domain.py": "4e9fc6efb0c57f260708c839dc5ec1e9a82477d5d549838f56d5bb9c870d6b5d",
+      "admissions_app/experiments.py": "d9660ef49a1e3f9394fc03ae9dff756ca52ca054534aba43a3e5cbccd9f9c4b5",
+      "admissions_app/repository.py": "c3c641394860319774abff9bbe73ea1bb91e741b0b2422ad453d47b4e6cb4d74",
+      "admissions_app/service.py": "389c556b9c43fa828e3fb8ba45585613c5f5a7ff5a0de427b6994c777047c455",
+      "admissions_app/web.py": "0676b361788942e7a91ef75f9d47c2c206abc6a1bb8b9652fd568e27a5df084f",
+      "schema_app.sql": "606a4d664d880744a45cf657dfe787f6d05fb12d3495d73a2e49a46886aa1f27",
+      "requirements.txt": "883e313ba429099d363ff334f45a7614ad0c5aea6cfedee36adb516d795fa04e",
+      "config.example.json": "bc69f4bbbb2106ffadcacbb1631f3afb09043899487ce1038358e7857fb92a58",
+      "templates/base.html": "af4998135a54bfb060fdb985e92408d666c22058d736835e16d2c0d50b1d1531",
+      "templates/candidate.html": "4e48d75daa5fbf4c26ad9d602938762a0b6ed04b822367afa9b2e85e88b45002",
+      "templates/dataset.html": "3fe07a3eccd1dc14814a6863ac14f4cb61740ff50d848f4019c5bf603421d9e3",
+      "templates/error.html": "002deaf91a858326379db336f1783f877e582dfbee70eca9aa0c694f5fb3d456",
+      "templates/home.html": "ad5c5215d40f4672ec690b6e48e78928852d29d99c3e51ae79672ac91867c6bc",
+      "templates/run.html": "89fae94fd0cc96153548ac5599a34e2cd53423f5987235711c4b1c2a085dde78",
+      "templates/transfers.html": "e20dce9b14269b03239c0041c7eec818395b616c5ab809aba9731d6305b84e9b",
+      "static/app.css": "3b115eea56560c25f2b0adf97cc8883c5ed8160fca79948c46f707ad4158382d",
+      "static/app.js": "c7008362977ba09849844c789b2f957f89c607b2ae08373882cea3344b3845a3",
+      "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tests/test_mysql.py": "5b0c439f754b1a69ab561a8a71c1c9cbbb82371ba20c1aa77f4355e398b41aba",
+      "tests/test_system.py": "aae82daeebe3660555b644c5a8c63dc98473972b80ecee77fd65b00724b4d377"
+    },
+    "model_version": "app-v1",
+    "historical_experiment_commit": "30ebf707c2a7180d3ede588812458da8e4d11ff5"
+  },
+  "working_tree_committed": false,
+  "unit_test_exit_code": 0,
+  "expected_unit_pass_count": 31,
+  "expected_mysql_tests_skipped_in_discovery": 2,
+  "real_mysql_fault_report": "../app_mysql_fault_v1/mysql_fault_recovery.json",
+  "real_mysql_web_report": "../app_mysql_web_v3/web_mysql_verification.json",
+  "query_report": "../app_mysql_query_v3/query_comparison.json",
+  "query_module_unchanged_since_measurement": true,
+  "business_sources_unchanged_since_scale_run": [
+    "admission.py",
+    "second_batch.py",
+    "third_batch.py",
+    "run_admissions.py",
+    "admissions_app/domain.py",
+    "admissions_app/service.py"
+  ],
+  "ui_and_schema_changes_after_query_measurement": [
+    "manage.py",
+    "admissions_app/repository.py",
+    "admissions_app/web.py",
+    "schema_app.sql",
+    "templates/run.html",
+    "tests/test_mysql.py",
+    "tests/test_system.py"
+  ],
+  "historical_tracked_reports_unmodified": true
+}

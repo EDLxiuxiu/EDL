@@ -1,0 +1,378 @@
+{
+  "mode": "real_mysql_diagnosis",
+  "run_id": "72d861eb-9eb5-4faf-b117-6712d2764838",
+  "queries": {
+    "unadmitted_normal": {
+      "sql": "SELECT candidate_no FROM app_candidate_results WHERE run_id=%s AND admitted_batch IS NULL ORDER BY candidate_no",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "7188.47"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "app_candidate_results",
+              "access_type": "ref",
+              "possible_keys": [
+                "PRIMARY",
+                "uq_actual_order",
+                "ix_candidate_junior",
+                "ix_candidate_senior",
+                "ix_candidate_batch"
+              ],
+              "key": "PRIMARY",
+              "used_key_parts": [
+                "run_id"
+              ],
+              "key_length": "144",
+              "ref": [
+                "const"
+              ],
+              "rows_examined_per_scan": 70920,
+              "rows_produced_per_join": 7092,
+              "filtered": "10.00",
+              "cost_info": {
+                "read_cost": "96.47",
+                "eval_cost": "709.20",
+                "prefix_cost": "7188.47",
+                "data_read_per_join": "8M"
+              },
+              "used_columns": [
+                "run_id",
+                "candidate_no",
+                "admitted_batch"
+              ],
+              "attached_condition": "((`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838') and (`admissionsim_app`.`app_candidate_results`.`admitted_batch` is null))"
+            }
+          }
+        }
+      },
+      "rows": 34709,
+      "client_seconds": 4.871580100036226
+    },
+    "unadmitted_forced": {
+      "sql": "SELECT candidate_no FROM app_candidate_results FORCE INDEX (ix_candidate_batch) WHERE run_id=%s AND admitted_batch IS NULL ORDER BY candidate_no",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "1609.98"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "app_candidate_results",
+              "access_type": "ref",
+              "possible_keys": [
+                "ix_candidate_batch"
+              ],
+              "key": "ix_candidate_batch",
+              "used_key_parts": [
+                "run_id",
+                "admitted_batch"
+              ],
+              "key_length": "146",
+              "ref": [
+                "const",
+                "const"
+              ],
+              "rows_examined_per_scan": 10131,
+              "rows_produced_per_join": 10131,
+              "filtered": "100.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "596.88",
+                "eval_cost": "1013.10",
+                "prefix_cost": "1609.98",
+                "data_read_per_join": "11M"
+              },
+              "used_columns": [
+                "run_id",
+                "candidate_no",
+                "admitted_batch"
+              ],
+              "attached_condition": "((`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838') and (`admissionsim_app`.`app_candidate_results`.`admitted_batch` is null))"
+            }
+          }
+        }
+      },
+      "rows": 34709,
+      "client_seconds": 0.22474309999961406
+    },
+    "batch_counts_normal": {
+      "sql": "SELECT admitted_batch,COUNT(*) FROM app_candidate_results WHERE run_id=%s AND admitted_batch IS NOT NULL GROUP BY admitted_batch",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "7179.03"
+          },
+          "grouping_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "app_candidate_results",
+              "access_type": "range",
+              "possible_keys": [
+                "PRIMARY",
+                "uq_actual_order",
+                "ix_candidate_junior",
+                "ix_candidate_senior",
+                "ix_candidate_batch"
+              ],
+              "key": "ix_candidate_batch",
+              "used_key_parts": [
+                "run_id",
+                "admitted_batch"
+              ],
+              "key_length": "146",
+              "rows_examined_per_scan": 70920,
+              "rows_produced_per_join": 63827,
+              "filtered": "100.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "87.03",
+                "eval_cost": "6382.80",
+                "prefix_cost": "7179.03",
+                "data_read_per_join": "72M"
+              },
+              "used_columns": [
+                "run_id",
+                "candidate_no",
+                "admitted_batch"
+              ],
+              "attached_condition": "((`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838') and (`admissionsim_app`.`app_candidate_results`.`admitted_batch` is not null))"
+            }
+          }
+        }
+      },
+      "rows": 4,
+      "client_seconds": 0.5880292000365444
+    },
+    "batch_counts_forced": {
+      "sql": "SELECT admitted_batch,COUNT(*) FROM app_candidate_results FORCE INDEX (ix_candidate_batch) WHERE run_id=%s AND admitted_batch IS NOT NULL GROUP BY admitted_batch",
+      "explain": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "18350.25"
+          },
+          "grouping_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "app_candidate_results",
+              "access_type": "range",
+              "possible_keys": [
+                "ix_candidate_batch"
+              ],
+              "key": "ix_candidate_batch",
+              "used_key_parts": [
+                "run_id",
+                "admitted_batch"
+              ],
+              "key_length": "146",
+              "rows_examined_per_scan": 70920,
+              "rows_produced_per_join": 70920,
+              "filtered": "100.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "11258.25",
+                "eval_cost": "7092.00",
+                "prefix_cost": "18350.25",
+                "data_read_per_join": "80M"
+              },
+              "used_columns": [
+                "run_id",
+                "candidate_no",
+                "admitted_batch"
+              ],
+              "attached_condition": "((`admissionsim_app`.`app_candidate_results`.`run_id` = '72d861eb-9eb5-4faf-b117-6712d2764838') and (`admissionsim_app`.`app_candidate_results`.`admitted_batch` is not null))"
+            }
+          }
+        }
+      },
+      "rows": 4,
+      "client_seconds": 0.5261044999933802
+    }
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "ix_candidate_batch",
+      "SEQ_IN_INDEX": 1,
+      "COLUMN_NAME": "run_id"
+    },
+    {
+      "INDEX_NAME": "ix_candidate_batch",
+      "SEQ_IN_INDEX": 2,
+      "COLUMN_NAME": "admitted_batch"
+    },
+    {
+      "INDEX_NAME": "ix_candidate_batch",
+      "SEQ_IN_INDEX": 3,
+      "COLUMN_NAME": "candidate_no"
+    },
+    {
+      "INDEX_NAME": "ix_candidate_junior",
+      "SEQ_IN_INDEX": 1,
+      "COLUMN_NAME": "run_id"
+    },
+    {
+      "INDEX_NAME": "ix_candidate_junior",
+      "SEQ_IN_INDEX": 2,
+      "COLUMN_NAME": "junior_code"
+    },
+    {
+      "INDEX_NAME": "ix_candidate_senior",
+      "SEQ_IN_INDEX": 1,
+      "COLUMN_NAME": "run_id"
+    },
+    {
+      "INDEX_NAME": "ix_candidate_senior",
+      "SEQ_IN_INDEX": 2,
+      "COLUMN_NAME": "senior_code"
+    },
+    {
+      "INDEX_NAME": "ix_candidate_senior",
+      "SEQ_IN_INDEX": 3,
+      "COLUMN_NAME": "admitted_batch"
+    },
+    {
+      "INDEX_NAME": "PRIMARY",
+      "SEQ_IN_INDEX": 1,
+      "COLUMN_NAME": "run_id"
+    },
+    {
+      "INDEX_NAME": "PRIMARY",
+      "SEQ_IN_INDEX": 2,
+      "COLUMN_NAME": "candidate_no"
+    },
+    {
+      "INDEX_NAME": "uq_actual_order",
+      "SEQ_IN_INDEX": 1,
+      "COLUMN_NAME": "run_id"
+    },
+    {
+      "INDEX_NAME": "uq_actual_order",
+      "SEQ_IN_INDEX": 2,
+      "COLUMN_NAME": "plan_id"
+    },
+    {
+      "INDEX_NAME": "uq_actual_order",
+      "SEQ_IN_INDEX": 3,
+      "COLUMN_NAME": "admission_order"
+    }
+  ],
+  "constraints": [
+    {
+      "TABLE_NAME": "app_candidate_results",
+      "CONSTRAINT_NAME": "app_candidate_results_chk_1",
+      "CONSTRAINT_TYPE": "CHECK"
+    },
+    {
+      "TABLE_NAME": "app_candidate_results",
+      "CONSTRAINT_NAME": "app_candidate_results_ibfk_1",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_candidate_results",
+      "CONSTRAINT_NAME": "app_candidate_results_ibfk_2",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_candidate_results",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "CONSTRAINT_TYPE": "PRIMARY KEY"
+    },
+    {
+      "TABLE_NAME": "app_candidate_results",
+      "CONSTRAINT_NAME": "uq_actual_order",
+      "CONSTRAINT_TYPE": "UNIQUE"
+    },
+    {
+      "TABLE_NAME": "app_checkpoints",
+      "CONSTRAINT_NAME": "app_checkpoints_chk_1",
+      "CONSTRAINT_TYPE": "CHECK"
+    },
+    {
+      "TABLE_NAME": "app_checkpoints",
+      "CONSTRAINT_NAME": "app_checkpoints_ibfk_1",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_checkpoints",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "CONSTRAINT_TYPE": "PRIMARY KEY"
+    },
+    {
+      "TABLE_NAME": "app_datasets",
+      "CONSTRAINT_NAME": "app_datasets_ibfk_1",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_datasets",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "CONSTRAINT_TYPE": "PRIMARY KEY"
+    },
+    {
+      "TABLE_NAME": "app_plan_results",
+      "CONSTRAINT_NAME": "app_plan_results_chk_1",
+      "CONSTRAINT_TYPE": "CHECK"
+    },
+    {
+      "TABLE_NAME": "app_plan_results",
+      "CONSTRAINT_NAME": "app_plan_results_ibfk_1",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_plan_results",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "CONSTRAINT_TYPE": "PRIMARY KEY"
+    },
+    {
+      "TABLE_NAME": "app_runs",
+      "CONSTRAINT_NAME": "app_runs_chk_1",
+      "CONSTRAINT_TYPE": "CHECK"
+    },
+    {
+      "TABLE_NAME": "app_runs",
+      "CONSTRAINT_NAME": "app_runs_chk_2",
+      "CONSTRAINT_TYPE": "CHECK"
+    },
+    {
+      "TABLE_NAME": "app_runs",
+      "CONSTRAINT_NAME": "app_runs_ibfk_1",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_runs",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "CONSTRAINT_TYPE": "PRIMARY KEY"
+    },
+    {
+      "TABLE_NAME": "app_transfers",
+      "CONSTRAINT_NAME": "app_transfers_chk_1",
+      "CONSTRAINT_TYPE": "CHECK"
+    },
+    {
+      "TABLE_NAME": "app_transfers",
+      "CONSTRAINT_NAME": "app_transfers_ibfk_1",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_transfers",
+      "CONSTRAINT_NAME": "app_transfers_ibfk_2",
+      "CONSTRAINT_TYPE": "FOREIGN KEY"
+    },
+    {
+      "TABLE_NAME": "app_transfers",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "CONSTRAINT_TYPE": "PRIMARY KEY"
+    },
+    {
+      "TABLE_NAME": "app_transfers",
+      "CONSTRAINT_NAME": "uq_transfer_source",
+      "CONSTRAINT_TYPE": "UNIQUE"
+    }
+  ]
+}

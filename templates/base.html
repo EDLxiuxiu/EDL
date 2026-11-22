@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}中考录取模拟{% endblock %} · 招录工作台</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"><script src="{{ url_for('static', filename='app.js') }}" defer></script></head>
+<body><a class="skip" href="#main">跳到主要内容</a><aside class="sidebar"><a class="brand" href="{{ url_for('home') }}"><span class="brand-icon">录</span><span>招录工作台<small>广州中考 · 教学模拟</small></span></a>
+<nav aria-label="主导航"><a href="{{ url_for('home') }}">运行与数据版本</a>{% if meta is defined %}<a href="{{ url_for('run',run_id=meta.run_id) }}">本次运行</a><a href="{{ url_for('transfers',run_id=meta.run_id) }}">名额结转</a>{% endif %}</nav>
+<div class="sidebar-foot">虚构数据 · 公办高中模拟<br><strong>{{ storage_mode }}</strong><p>控制线是投档门槛，最低录取分由录取结果产生。</p></div></aside>
+<div class="workspace"><header><span>软件系统开发实践</span><span class="badge">四批投档 / 可追溯运行</span></header>
+<main id="main">{% for message in get_flashed_messages() %}<p class="notice" role="status">{{ message }}</p>{% endfor %}{% block content %}{% endblock %}</main>
+<footer>本系统遵循课程简化规则，数据不代表真实招生政策或分布。</footer></div></body></html>
